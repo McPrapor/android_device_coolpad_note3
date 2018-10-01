@@ -102,3 +102,7 @@ TARGET_SYSTEM_PROP := $(LOCAL_PATH)/system.prop
 
 # SELinux
 BOARD_SEPOLICY_DIRS += $(LOCAL_PATH)/sepolicy
+
+LINKER_FORCED_SHIM_LIBS := $(LINKER_FORCED_SHIM_LIBS):/system/lib/liblog.so|libhtcxlog_shim.so:/system/lib64/liblog.so|libhtcxlog_shim.so
+# FIX updater_script
+TARGET_RELEASETOOLS_EXTENSIONS := $(LOCAL_PATH)/releasetools.py
