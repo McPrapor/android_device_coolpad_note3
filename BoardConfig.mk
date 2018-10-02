@@ -48,6 +48,9 @@ BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 LZMA_RAMDISK_TARGETS := boot,recovery
 BOARD_USES_FULL_RECOVERY_IMAGE := true
 
+#$(call inherit-product, device/coolpad/note3/kernel/kernel.mk)
+include device/coolpad/note3/kernel/kernel.mk
+
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 20971520
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 20971520
@@ -104,10 +107,6 @@ TARGET_SYSTEM_PROP := $(LOCAL_PATH)/system.prop
 
 # SELinux
 BOARD_SEPOLICY_DIRS += $(LOCAL_PATH)/sepolicy
-
-# Kernel
-#BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
-$(call inherit-product, device/coolpad/note3/kernel/kernel.mk)
 
 # FIX updater_script
 TARGET_RELEASETOOLS_EXTENSIONS := $(LOCAL_PATH)/releasetools.py
