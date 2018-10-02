@@ -67,3 +67,6 @@ $(call inherit-product, vendor/mad/config/common.mk)
 # Vendor
 $(call inherit-product, vendor/coolpad/note3/note3-vendor.mk)
 $(call inherit-product, vendor/coolpad/note3/note3-firmware-blobs.mk)
+
+# Kernel
+$(call inherit-product, device/mad/kernel/kernel.mk)
