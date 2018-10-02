@@ -105,5 +105,9 @@ TARGET_SYSTEM_PROP := $(LOCAL_PATH)/system.prop
 # SELinux
 BOARD_SEPOLICY_DIRS += $(LOCAL_PATH)/sepolicy
 
+# Kernel
+#BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
+$(call inherit-product, device/coolpad/note3/kernel/kernel.mk)
+
 # FIX updater_script
 TARGET_RELEASETOOLS_EXTENSIONS := $(LOCAL_PATH)/releasetools.py
