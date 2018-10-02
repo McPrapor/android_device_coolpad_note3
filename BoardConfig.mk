@@ -62,12 +62,14 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
 # Include needed symbols
-TARGET_INCLUDE_XLOG_SYMBOLS := true
+TARGET_INCLUDE_XLOG_SYMBOLS := false
 TARGET_INCLUDE_AUDIO_SYMBOLS := true
 TARGET_INCLUDE_UI_SYMBOLS := true
 TARGET_INCLUDE_GUI_SYMBOLS := true
 TARGET_INCLUDE_CAMERA_SYMBOLS := true
 include vendor/mad/config/symbols.mk
+# Replace xlog with htcxlog
+LINKER_FORCED_SHIM_LIBS := $(LINKER_FORCED_SHIM_LIBS):/system/lib/liblog.so|libhtcxlog_shim.so:/system/lib64/liblog.so|libhtcxlog_shim.so
 
 #audio
 TARGET_HAS_PRE_N_AUDIO := true
@@ -103,8 +105,5 @@ TARGET_SYSTEM_PROP := $(LOCAL_PATH)/system.prop
 # SELinux
 BOARD_SEPOLICY_DIRS += $(LOCAL_PATH)/sepolicy
 
-# Replace xlog with htcxlog
-TARGET_INCLUDE_XLOG_SYMBOLS := false
-LINKER_FORCED_SHIM_LIBS := $(LINKER_FORCED_SHIM_LIBS):/system/lib/liblog.so|libhtcxlog_shim.so:/system/lib64/liblog.so|libhtcxlog_shim.so
 # FIX updater_script
 TARGET_RELEASETOOLS_EXTENSIONS := $(LOCAL_PATH)/releasetools.py
