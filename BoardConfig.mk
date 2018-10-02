@@ -48,9 +48,6 @@ BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 LZMA_RAMDISK_TARGETS := boot,recovery
 BOARD_USES_FULL_RECOVERY_IMAGE := true
 
-#$(call inherit-product, device/coolpad/note3/kernel/kernel.mk)
-include device/coolpad/note3/kernel/kernel.mk
-
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 20971520
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 20971520
