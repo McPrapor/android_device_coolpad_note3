@@ -69,4 +69,5 @@ $(call inherit-product, vendor/coolpad/note3/note3-vendor.mk)
 $(call inherit-product, vendor/coolpad/note3/note3-firmware-blobs.mk)
 
 # Kernel
+BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 $(call inherit-product, device/coolpad/note3/kernel/kernel.mk)
