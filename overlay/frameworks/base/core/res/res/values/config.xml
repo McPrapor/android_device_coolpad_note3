@@ -82,13 +82,13 @@
     <bool name="config_intrusiveNotificationLed">true</bool>
 
     <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
-    <bool name="config_intrusiveBatteryLed">true</bool>
+<!--    <bool name="config_intrusiveBatteryLed">true</bool> -->
 
     <!-- Does the notification LED support multiple colors? Used to decide if the user can change the colors -->
-    <bool name="config_multiColorNotificationLed">true</bool>
+<!--    <bool name="config_multiColorNotificationLed">true</bool> -->
 
     <!-- Does the battery LED support multiple colors? Used to decide if the user can change the colors -->
-    <bool name="config_multiColorBatteryLed">true</bool>
+<!--    <bool name="config_multiColorBatteryLed">true</bool> -->
 
     <!-- Default color for notification LED is green. -->
     <color name="config_defaultNotificationColor">#ff00ff00</color>
@@ -127,7 +127,7 @@
             64 - Volume rocker
          For example, a device with Home, Back and Menu keys would set this
          config to 7. -->
-    <integer name="config_deviceHardwareKeys">83</integer>
+<!--    <integer name="config_deviceHardwareKeys">83</integer> -->
 
     <!-- Is the device capable of fingerprint actions
 	Fingerprint options of the device, stored as a bit field.
@@ -138,5 +138,5 @@
             4 - Long tap
          For example, a device with Single and Long tap would set this
          config to 5. -->
-    <integer name="config_fingerprintActions">6</integer>
+<!--    <integer name="config_fingerprintActions">6</integer> -->
 </resources>
