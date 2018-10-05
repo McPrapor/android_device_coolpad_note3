@@ -21,6 +21,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fingerprint.default
 
+# MDDB
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/mddb/BPLGUInfoCustomAppSrcP_MT6735_S00_0_1524V28P45_0504_0422_1_1_lwg_n:system/etc/mddb/BPLGUInfoCustomAppSrcP_MT6735_S00_0_1524V28P45_0504_0422_1_1_lwg_n \
+    $(LOCAL_PATH)/configs//mddb/DbgInfo_LR9.W1444.MD.LWTG.MP_MT6735_V36BML_0_1524V28P45_0504_0422_1_2016_04_22_15_26_1_lwg_n:system/etc/mddb/DbgInfo_LR9.W1444.MD.LWTG.MP_MT6735_V36BML_0_1524V28P45_0504_0422_1_2016_04_22_15_26_1_lwg_n
+
 # Audio
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/audio_device.xml:system/vendor/etc/audio_device.xml \
