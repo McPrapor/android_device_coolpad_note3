@@ -137,6 +137,10 @@ on post-fs-data
     # Thermal
     mkdir /data/.tp/ 0770 system system
 
+    mknod /dev/wmtWifi c 153 0
+    chmod 0660 /dev/wmtWifi
+    chown system system /dev/wmtWifi
+
 on boot
     write /proc/sys/vm/dirty_writeback_centisecs 300
 
