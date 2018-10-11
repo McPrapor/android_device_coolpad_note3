@@ -69,10 +69,9 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 # Common stuff
 $(call inherit-product, vendor/mad/config/common.mk)
 
-include $(LOCAL_PATH)/product/*.mk
+# RIL
 PRODUCT_PACKAGES += \
    libccci_util
-# RIL
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.kernel.android.checkjni=0 \
     ro.telephony.ril_class=MT6753 \
