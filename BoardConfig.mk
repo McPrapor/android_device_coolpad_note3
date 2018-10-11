@@ -108,3 +108,7 @@ BOARD_SEPOLICY_DIRS += $(LOCAL_PATH)/sepolicy
 
 # FIX updater_script
 TARGET_RELEASETOOLS_EXTENSIONS := $(LOCAL_PATH)/releasetools.py
+
+# RIL
+BOARD_RIL_CLASS := ../../../device/coolpad/note3/ril
+BOARD_CONNECTIVITY_MODULE := conn_soc
