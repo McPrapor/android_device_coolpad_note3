@@ -69,8 +69,7 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 # Common stuff
 $(call inherit-product, vendor/mad/config/common.mk)
 
-# Fix wifi?
-include vendor/mad/config/wifi.mk
+include $(LOCAL_PATH)/product/*.mk
 
 # Vendor
 $(call inherit-product, vendor/coolpad/note3/note3-vendor.mk)
