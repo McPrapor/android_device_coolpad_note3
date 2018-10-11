@@ -68,7 +68,6 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
 # Common stuff
 $(call inherit-product, vendor/mad/config/common.mk)
--include vendor/mad/config/wifi.mk
 
 # RIL
 PRODUCT_PACKAGES += \
@@ -78,12 +77,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.ril_class=MT6753 \
     ro.telephony.ril.config=fakeiccid \
     ro.com.android.mobiledata=false
-# WiFi
-PRODUCT_PACKAGES += \
-    libwpa_client \
-    wpa_supplicant \
-    wpa_supplicant.conf \
-    lib_driver_cmd_mt66xx
 
 # Vendor
 $(call inherit-product, vendor/coolpad/note3/note3-vendor.mk)
