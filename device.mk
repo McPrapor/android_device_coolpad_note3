@@ -68,6 +68,7 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
 # Common stuff
 $(call inherit-product, vendor/mad/config/common.mk)
+-include vendor/mad/config/wifi.mk
 
 # RIL
 PRODUCT_PACKAGES += \
