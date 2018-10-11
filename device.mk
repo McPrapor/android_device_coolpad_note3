@@ -81,8 +81,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # WiFi
 PRODUCT_PACKAGES += \
     libwpa_client \
-    wpa_supplicant \
-    wpa_supplicant.conf \
     lib_driver_cmd_mt66xx
 
 # Vendor
