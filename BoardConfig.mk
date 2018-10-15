@@ -2,6 +2,7 @@
 LOCAL_PATH := device/coolpad/note3
 
 include vendor/mad/config/board.mk
+include vendor/misu/common.mk
 
 # Platform
 ARCH_ARM_HAVE_TLS_REGISTER := true
