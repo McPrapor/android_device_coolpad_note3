@@ -2,7 +2,7 @@
 LOCAL_PATH := device/coolpad/note3
 
 include vendor/mad/config/board.mk
-include vendor/misu/common.mk
+#include vendor/misu/common.mk
 
 # Platform
 ARCH_ARM_HAVE_TLS_REGISTER := true
@@ -113,3 +113,4 @@ TARGET_RELEASETOOLS_EXTENSIONS := $(LOCAL_PATH)/releasetools.py
 # RIL
 BOARD_RIL_CLASS := ../../../device/coolpad/note3/ril
 BOARD_CONNECTIVITY_MODULE := conn_soc
+BOARD_PROVIDES_LIBRIL := true
