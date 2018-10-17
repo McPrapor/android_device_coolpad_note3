@@ -71,7 +71,9 @@ $(call inherit-product, vendor/mad/config/common.mk)
 
 # RIL
 PRODUCT_PACKAGES += \
-   libccci_util
+   libccci_util \
+   libril \
+   rild
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.kernel.android.checkjni=0 \
     ro.telephony.ril_class=MT6753 \
