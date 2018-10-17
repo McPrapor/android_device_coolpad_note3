@@ -117,4 +117,3 @@ BOARD_RIL_CLASS := ../../../device/coolpad/note3/ril
 BOARD_CONNECTIVITY_MODULE := conn_soc
 BOARD_PROVIDES_LIBRIL := true
 BOARD_USES_RIL_UNSOL_PENDING := true
-MTK_HARDWARE := true
