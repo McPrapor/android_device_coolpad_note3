@@ -1,5 +1,3 @@
-extern "C" {
-  void switchStkUtkModeByCardType(double rid) {
-
-  }
+void switchStkUtkModeByCardType(double rid) {
+    RLOGD("switchStkUtkModeByCardType SHIM call");
 }
