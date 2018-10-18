@@ -118,4 +118,4 @@ BOARD_CONNECTIVITY_MODULE := conn_soc
 BOARD_PROVIDES_LIBRIL := true
 BOARD_USES_RIL_UNSOL_PENDING := true
 BOARD_USES_MTK_HARDWARE := true
-
+TARGET_LD_SHIM_LIBS := $(TARGET_LD_SHIM_LIBS):/system/lib/mtk-ril.so|libmtk-ril_shim.so:/system/lib64/mtk-ril.so|libmtk-ril_shim.so
