@@ -2,5 +2,5 @@
 #include <cutils/log.h>
 
 void switchStkUtkModeByCardType(double rid) {
-    RLOGD("switchStkUtkModeByCardType SHIM call");
+    RLOGD("switchStkUtkModeByCardType SHIM call rid: %d", rid);
 }
