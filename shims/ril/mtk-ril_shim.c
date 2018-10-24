@@ -3,7 +3,7 @@
 
 #define SHIMDEBUG 1
 
-void (*real_switchStkUtkModeByCardType)(double rid) = NULL;
+void (*real_switchStkUtkModeByCardType)(RIL_SOCKET_ID rid) = NULL;
 static void (*real_handleCardTypeUrc)(const char *s, RIL_SOCKET_ID rid) = NULL;
 
 void __attribute__((constructor)) initialize(void) {
@@ -21,7 +21,7 @@ void __attribute__((constructor)) initialize(void) {
   }
 }
 
-void switchStkUtkModeByCardType(double rid) {
+void switchStkUtkModeByCardType(RIL_SOCKET_ID rid) {
 #ifdef SHIMDEBUG      
     RLOGD("SHIM switchStkUtkModeByCardType call rid: %d", rid);
 #endif
