@@ -5,9 +5,9 @@
 
 void (*real_switchStkUtkModeByCardType)(RIL_SOCKET_ID rid) = NULL;
 static void (*real_handleCardTypeUrc)(const char *s, RIL_SOCKET_ID rid) = NULL;
-extern void (*real_RIL_requestProxyTimedCallback) (RIL_TimedCallback callback, void *param, const struct timeval *relativeTime, int proxyId) = NULL;
-extern void (*real_setupOpProperty)(RIL_SOCKET_ID rid) = NULL;
-extern void (*real_setupDynamicSBP)(RIL_SOCKET_ID rid) = NULL;
+void (*real_RIL_requestProxyTimedCallback) (RIL_TimedCallback callback, void *param, const struct timeval *relativeTime, int proxyId) = NULL;
+void (*real_setupOpProperty)(RIL_SOCKET_ID rid) = NULL;
+void (*real_setupDynamicSBP)(RIL_SOCKET_ID rid) = NULL;
 void (*real_setSimInsertedStatus)(RIL_SOCKET_ID rid, int isInserted) = NULL;
 
 void __attribute__((constructor)) initialize(void) {
