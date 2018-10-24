@@ -6,6 +6,8 @@
 void (*real_switchStkUtkModeByCardType)(RIL_SOCKET_ID rid) = NULL;
 static void (*real_handleCardTypeUrc)(const char *s, RIL_SOCKET_ID rid) = NULL;
 extern void (*real_RIL_requestProxyTimedCallback) (RIL_TimedCallback callback, void *param, const struct timeval *relativeTime, int proxyId) = NULL;
+extern void (*real_setupOpProperty)(RIL_SOCKET_ID rid) = NULL;
+
 
 void __attribute__((constructor)) initialize(void) {
   real_switchStkUtkModeByCardType = dlsym(RTLD_NEXT, "switchStkUtkModeByCardType");
@@ -20,12 +22,19 @@ void __attribute__((constructor)) initialize(void) {
     RLOGD("SHIM real_handleCardTypeUrc not found");
 #endif    
   }
-  real_RIL_requestProxyTimedCallback = dlsym(RTLD_NEXT, "real_RIL_requestProxyTimedCallback");
+  real_RIL_requestProxyTimedCallback = dlsym(RTLD_NEXT, "RIL_requestProxyTimedCallback");
   if (real_RIL_requestProxyTimedCallback == NULL) {
 #ifdef SHIMDEBUG    
     RLOGD("SHIM real_RIL_requestProxyTimedCallback not found");
 #endif    
   }
+  
+  real_setupOpProperty = dlsym(RTLD_NEXT, "setupOpProperty");
+  if (real_setupOpProperty == NULL) {
+#ifdef SHIMDEBUG    
+    RLOGD("SHIM real_setupOpProperty not found");
+#endif    
+  }  
 }
 
 void switchStkUtkModeByCardType(RIL_SOCKET_ID rid) {
@@ -63,5 +72,17 @@ void RIL_requestProxyTimedCallback (RIL_TimedCallback callback,
 #endif      
         return real_RIL_requestProxyTimedCallback(callback, param, relativeTime, proxyId);
     }  
+}
+
+void setupOpProperty(RIL_SOCKET_ID rid){
+#ifdef SHIMDEBUG    
+    RLOGD("SHIM setupOpProperty call rid: %d", rid);
+#endif
+    if (real_setupOpProperty != NULL) {
+#ifdef SHIMDEBUG          
+        RLOGD("SHIM real_setupOpProperty found, calling...");
+#endif      
+        return real_setupOpProperty(rid);
+    }     
 }
 
