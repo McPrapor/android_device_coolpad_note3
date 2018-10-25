@@ -3,6 +3,14 @@
 
 #define SHIMDEBUG 1
 
+typedef enum {
+    RIL_SOCKET_1,
+    RIL_SOCKET_2,
+    RIL_SOCKET_3,
+    RIL_SOCKET_4,
+    RIL_SOCKET_NUM
+} RIL_SOCKET_ID;
+
 void (*real_switchStkUtkModeByCardType)(RIL_SOCKET_ID rid) = NULL;
 static void (*real_handleCardTypeUrc)(const char *s, RIL_SOCKET_ID rid) = NULL;
 void (*real_RIL_requestProxyTimedCallback) (RIL_TimedCallback callback, void *param, const struct timeval *relativeTime, int proxyId) = NULL;
