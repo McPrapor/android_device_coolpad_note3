@@ -23,48 +23,16 @@ void (*real_setupDynamicSBP)(RIL_SOCKET_ID rid) = NULL;
 void (*real_setSimInsertedStatus)(RIL_SOCKET_ID rid, int isInserted) = NULL;
 
 void __attribute__((constructor)) initialize(void) {
+    RLOGD("SHIM attribute constructor initialize called");
+}
+
+void switchStkUtkModeByCardType(RIL_SOCKET_ID rid) {
   real_switchStkUtkModeByCardType = dlsym(RTLD_NEXT, "switchStkUtkModeByCardType");
   if (real_switchStkUtkModeByCardType == NULL) {
 #ifdef SHIMDEBUG
     RLOGD("SHIM real_switchStkUtkModeByCardType not found");
 #endif
   }
-  real_handleCardTypeUrc = dlsym(RTLD_NEXT, "handleCardTypeUrc");
-  if (real_handleCardTypeUrc == NULL) {
-#ifdef SHIMDEBUG    
-    RLOGD("SHIM real_handleCardTypeUrc not found");
-#endif    
-  }
-  real_RIL_requestProxyTimedCallback = dlsym(RTLD_NEXT, "RIL_requestProxyTimedCallback");
-  if (real_RIL_requestProxyTimedCallback == NULL) {
-#ifdef SHIMDEBUG    
-    RLOGD("SHIM real_RIL_requestProxyTimedCallback not found");
-#endif    
-  }
-  
-  real_setupOpProperty = dlsym(RTLD_NEXT, "setupOpProperty");
-  if (real_setupOpProperty == NULL) {
-#ifdef SHIMDEBUG    
-    RLOGD("SHIM real_setupOpProperty not found");
-#endif    
-  }  
-    
-  real_setupDynamicSBP = dlsym(RTLD_NEXT, "setupDynamicSBP");
-  if (real_setupDynamicSBP == NULL) {
-#ifdef SHIMDEBUG    
-    RLOGD("SHIM real_setupDynamicSBP not found");
-#endif    
-  }
-
-  real_setSimInsertedStatus = dlsym(RTLD_NEXT, "setSimInsertedStatus");
-  if (real_setSimInsertedStatus == NULL) {
-#ifdef SHIMDEBUG    
-    RLOGD("SHIM real_setSimInsertedStatus not found");
-#endif    
-  }  
-}
-
-void switchStkUtkModeByCardType(RIL_SOCKET_ID rid) {
 #ifdef SHIMDEBUG      
     RLOGD("SHIM switchStkUtkModeByCardType call rid: %d", rid);
 #endif
@@ -77,6 +45,13 @@ void switchStkUtkModeByCardType(RIL_SOCKET_ID rid) {
 }
 
 static void handleCardTypeUrc(const char *s, RIL_SOCKET_ID rid) {
+  real_handleCardTypeUrc = dlsym(RTLD_NEXT, "handleCardTypeUrc");
+  if (real_handleCardTypeUrc == NULL) {
+#ifdef SHIMDEBUG    
+    RLOGD("SHIM real_handleCardTypeUrc not found");
+#endif    
+  }
+  
 #ifdef SHIMDEBUG    
     RLOGD("SHIM handleCardTypeUrc call rid: %d", rid);
 #endif
@@ -90,6 +65,12 @@ static void handleCardTypeUrc(const char *s, RIL_SOCKET_ID rid) {
 
 void RIL_requestProxyTimedCallback (RIL_TimedCallback callback, 
                                      void *param, const struct timeval *relativeTime, int proxyId) {
+  real_RIL_requestProxyTimedCallback = dlsym(RTLD_NEXT, "RIL_requestProxyTimedCallback");
+  if (real_RIL_requestProxyTimedCallback == NULL) {
+#ifdef SHIMDEBUG    
+    RLOGD("SHIM real_RIL_requestProxyTimedCallback not found");
+#endif    
+  }
 #ifdef SHIMDEBUG    
     RLOGD("SHIM RIL_requestProxyTimedCallback call");
 #endif
@@ -102,6 +83,12 @@ void RIL_requestProxyTimedCallback (RIL_TimedCallback callback,
 }
 
 void setupOpProperty(RIL_SOCKET_ID rid){
+  real_setupOpProperty = dlsym(RTLD_NEXT, "setupOpProperty");
+  if (real_setupOpProperty == NULL) {
+#ifdef SHIMDEBUG    
+    RLOGD("SHIM real_setupOpProperty not found");
+#endif    
+  }  
 #ifdef SHIMDEBUG    
     RLOGD("SHIM setupOpProperty call rid: %d", rid);
 #endif
@@ -114,6 +101,12 @@ void setupOpProperty(RIL_SOCKET_ID rid){
 }
 
 void setupDynamicSBP(RIL_SOCKET_ID rid){
+  real_setupDynamicSBP = dlsym(RTLD_NEXT, "setupDynamicSBP");
+  if (real_setupDynamicSBP == NULL) {
+#ifdef SHIMDEBUG    
+    RLOGD("SHIM real_setupDynamicSBP not found");
+#endif    
+  } 
 #ifdef SHIMDEBUG    
     RLOGD("SHIM setupDynamicSBP call rid: %d", rid);
 #endif
@@ -126,6 +119,12 @@ void setupDynamicSBP(RIL_SOCKET_ID rid){
 }  
 
 void setSimInsertedStatus(RIL_SOCKET_ID rid, int isInserted){
+  real_setSimInsertedStatus = dlsym(RTLD_NEXT, "setSimInsertedStatus");
+  if (real_setSimInsertedStatus == NULL) {
+#ifdef SHIMDEBUG    
+    RLOGD("SHIM real_setSimInsertedStatus not found");
+#endif    
+  } 
 #ifdef SHIMDEBUG    
     RLOGD("SHIM setSimInsertedStatus call rid: %d isInserted: %d", rid, isInserted);
 #endif
