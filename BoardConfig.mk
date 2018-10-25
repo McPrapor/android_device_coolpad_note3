@@ -112,6 +112,7 @@ TARGET_RELEASETOOLS_EXTENSIONS := $(LOCAL_PATH)/releasetools.py
 
 
 # RIL
+TARGET_RIL_VARIANT := hardware/coolpad/note3/ril
 TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 BOARD_RIL_CLASS := ../../../device/coolpad/note3/ril
 BOARD_CONNECTIVITY_MODULE := conn_soc
