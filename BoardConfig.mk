@@ -112,11 +112,12 @@ TARGET_RELEASETOOLS_EXTENSIONS := $(LOCAL_PATH)/releasetools.py
 
 
 # RIL
-TARGET_RIL_VARIANT := hardware/coolpad/note3/ril
+TARGET_RIL_VARIANT := ""
 TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 BOARD_RIL_CLASS := ../../../device/coolpad/note3/ril
 BOARD_CONNECTIVITY_MODULE := conn_soc
 BOARD_PROVIDES_LIBRIL := true
+BOARD_PROVIDES_RILD := true
 BOARD_USES_RIL_UNSOL_PENDING := true
 BOARD_USES_MTK_HARDWARE := true
 TARGET_LD_SHIM_LIBS := $(TARGET_LD_SHIM_LIBS):/system/lib/mtk-ril.so|libmtk-ril_shim.so:/system/lib64/mtk-ril.so|libmtk-ril_shim.so
