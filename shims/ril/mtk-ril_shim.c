@@ -133,6 +133,6 @@ void setSimInsertedStatus(RIL_SOCKET_ID rid, int isInserted){
 #ifdef SHIMDEBUG          
         RLOGD("SHIM real_setSimInsertedStatus found, calling...");
 #endif      
-        return real_setSimInsertedStatus(rid);
+        return real_setSimInsertedStatus(rid, isInserted);
     }  
 }
