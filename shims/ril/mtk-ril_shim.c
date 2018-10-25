@@ -1,5 +1,13 @@
+// For RTLD_NEXT
+#define _GNU_SOURCE
+// For dlsym
+#include <dlfcn.h>
+#include <stdlib.h>
+
+
 #include <log/log.h>
 #include <cutils/log.h>
+
 
 #define SHIMDEBUG 1
 
