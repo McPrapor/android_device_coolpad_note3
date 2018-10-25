@@ -71,7 +71,6 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 $(call inherit-product, vendor/mad/config/common.mk)
 
 # RIL
-TARGET_RIL_VARIANT := hardware/coolpad/note3/ril
 PRODUCT_PACKAGES += \
    libccci_util \
    libril \
