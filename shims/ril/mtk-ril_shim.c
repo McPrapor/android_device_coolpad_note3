@@ -69,13 +69,13 @@ const RIL_RadioFunctions *RIL_Init(const struct RIL_Env *env, int argc, char **a
 #endif
   }
 #ifdef SHIMDEBUG      
-    RLOGD("SHIM RIL_Init call rid: %d", rid);
+    RLOGD("SHIM RIL_Init call");
 #endif
     if (real_RIL_Init == NULL) {
 #ifdef SHIMDEBUG          
       RLOGD("SHIM real_RIL_Init found, calling...");
 #endif      
-      return real_RIL_Init(subsystem, rid);
+      return real_RIL_Init(env, argc, argv);
     }    
 }
 
