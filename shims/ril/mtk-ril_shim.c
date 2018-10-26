@@ -15,6 +15,8 @@
 
 #define SHIMDEBUG 1
 
+extern void (*real_bootupGetImei)(RILSubSystemId subsystem, RIL_SOCKET_ID rid) = NULL;
+
 void (*real_switchStkUtkModeByCardType)(RIL_SOCKET_ID rid) = NULL;
 static void (*real_handleCardTypeUrc)(const char *s, RIL_SOCKET_ID rid) = NULL;
 void (*real_RIL_requestProxyTimedCallback) (RIL_TimedCallback callback, void *param, const struct timeval *relativeTime, int proxyId) = NULL;
@@ -25,6 +27,27 @@ void (*real_setSimInsertedStatus)(RIL_SOCKET_ID rid, int isInserted) = NULL;
 void __attribute__((constructor)) initialize(void) {
     RLOGD("SHIM attribute constructor initialize called");
 }
+
+
+extern void bootupGetImei(RILSubSystemId subsystem, RIL_SOCKET_ID rid) {
+  RLOGD("SHIM bootupGetImei called");
+  real_bootupGetImei = dlsym(RTLD_NEXT, "bootupGetImei");
+  if (real_bootupGetImei == NULL) {
+#ifdef SHIMDEBUG
+    RLOGD("SHIM real_bootupGetImei not found");
+#endif
+  }
+#ifdef SHIMDEBUG      
+    RLOGD("SHIM bootupGetImei call rid: %d", rid);
+#endif
+    if (real_bootupGetImei == NULL) {
+#ifdef SHIMDEBUG          
+      RLOGD("SHIM real_bootupGetImei found, calling...");
+#endif      
+      return real_bootupGetImei(subsystem, rid);
+    }
+}
+
 
 void switchStkUtkModeByCardType(RIL_SOCKET_ID rid) {
   real_switchStkUtkModeByCardType = dlsym(RTLD_NEXT, "switchStkUtkModeByCardType");
