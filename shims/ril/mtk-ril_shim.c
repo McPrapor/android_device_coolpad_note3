@@ -15,7 +15,28 @@
 
 #define SHIMDEBUG 1
 
-extern void (*real_bootupGetImei)(RILSubSystemId subsystem, RIL_SOCKET_ID rid) = NULL;
+
+typedef enum {
+    RIL_DEFAULT,
+    RIL_SIM,
+    RIL_STK,
+    RIL_CC,
+    RIL_SS,
+    RIL_SMS,
+    RIL_DATA,
+    RIL_NW,
+    RIL_OEM,
+#ifdef MTK_MUX_CHANNEL_64
+    RIL_RT,
+    RIL_NRT,
+    RIL_RADIO,
+    RIL_DATA2,
+    RIL_SIM2,
+#endif
+    RIL_SUPPORT_SUBSYSTEMS
+} RILSubSystemId;
+
+void (*real_bootupGetImei)(RILSubSystemId subsystem, RIL_SOCKET_ID rid) = NULL;
 
 void (*real_switchStkUtkModeByCardType)(RIL_SOCKET_ID rid) = NULL;
 static void (*real_handleCardTypeUrc)(const char *s, RIL_SOCKET_ID rid) = NULL;
