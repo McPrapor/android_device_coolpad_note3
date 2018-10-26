@@ -34,6 +34,7 @@ typedef enum {
     RIL_SUPPORT_SUBSYSTEMS
 } RILSubSystemId;
 
+/*
 static const RIL_RadioFunctions s_callbacks = {
     RIL_VERSION,
     onCustRequest,
@@ -42,7 +43,7 @@ static const RIL_RadioFunctions s_callbacks = {
     onCancel,
     getVersion
 };
-
+*/
 const RIL_RadioFunctions* (*real_RIL_Init)(const struct RIL_Env *env, int argc, char **argv) = NULL;
 
 static void (*real_onRequest)(int request, void *data, size_t datalen, RIL_Token t, RIL_SOCKET_ID socket_id) = NULL;
