@@ -38,12 +38,14 @@ typedef enum {
 
 
 static const RIL_RadioFunctions s_callbacks = {
-    RIL_VERSION,
+/*    RIL_VERSION,
     onCustRequest,
     currentState,
     onSupports,
     onCancel,
     getVersion
+    */
+    RIL_VERSION
 };
 
 const RIL_RadioFunctions* (*real_RIL_Init)(const struct RIL_Env *env, int argc, char **argv) = NULL;
