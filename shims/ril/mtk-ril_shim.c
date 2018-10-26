@@ -34,6 +34,18 @@ typedef enum {
     RIL_SUPPORT_SUBSYSTEMS
 } RILSubSystemId;
 
+static const RIL_RadioFunctions s_callbacks = {
+    RIL_VERSION,
+    onCustRequest,
+    currentState,
+    onSupports,
+    onCancel,
+    getVersion
+};
+
+const RIL_RadioFunctions* (*real_RIL_Init)(const struct RIL_Env *env, int argc, char **argv) = NULL;
+
+static void (*real_onRequest)(int request, void *data, size_t datalen, RIL_Token t, RIL_SOCKET_ID socket_id) = NULL;
 void (*real_bootupGetImei)(RILSubSystemId subsystem, RIL_SOCKET_ID rid) = NULL;
 
 void (*real_switchStkUtkModeByCardType)(RIL_SOCKET_ID rid) = NULL;
@@ -45,6 +57,25 @@ void (*real_setSimInsertedStatus)(RIL_SOCKET_ID rid, int isInserted) = NULL;
 
 void __attribute__((constructor)) initialize(void) {
     RLOGD("SHIM attribute constructor initialize called");
+}
+
+const RIL_RadioFunctions *RIL_Init(const struct RIL_Env *env, int argc, char **argv) {
+  RLOGD("SHIM RIL_Init called");
+  real_RIL_Init = dlsym(RTLD_NEXT, "RIL_Init");
+  if (real_RIL_Init == NULL) {
+#ifdef SHIMDEBUG
+    RLOGD("SHIM real_RIL_Init not found");
+#endif
+  }
+#ifdef SHIMDEBUG      
+    RLOGD("SHIM RIL_Init call rid: %d", rid);
+#endif
+    if (real_RIL_Init == NULL) {
+#ifdef SHIMDEBUG          
+      RLOGD("SHIM real_RIL_Init found, calling...");
+#endif      
+      return real_RIL_Init(subsystem, rid);
+    }    
 }
 
 
