@@ -26,13 +26,11 @@ typedef enum {
     RIL_DATA,
     RIL_NW,
     RIL_OEM,
-#ifdef MTK_MUX_CHANNEL_64
     RIL_RT,
     RIL_NRT,
     RIL_RADIO,
     RIL_DATA2,
     RIL_SIM2,
-#endif
     RIL_SUPPORT_SUBSYSTEMS
 } RILSubSystemId;
 
