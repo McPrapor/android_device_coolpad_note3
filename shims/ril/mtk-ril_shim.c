@@ -17,7 +17,7 @@
 
 #define SHIMDEBUG 1
 
-int activeRilSktID = INVALID_SOCKET;
+//int activeRilSktID = INVALID_SOCKET;
 
 typedef enum {
     RIL_DEFAULT,
