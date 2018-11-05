@@ -8,9 +8,8 @@ PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 # Custom shims
 PRODUCT_PACKAGES += \
-    libhtcxlog_shim
-#    libhtcxlog_shim \
-#    libmtk-ril_shim
+    libhtcxlog_shim \
+    libmtk-ril_shim
 
 # Manifest
 PRODUCT_COPY_FILES += \
