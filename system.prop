@@ -42,14 +42,10 @@ ril.telephony.mode=0
 #persist.radio.fd.off.counter=50
 #persist.radio.fd.r8.counter=150
 #persist.radio.fd.off.r8.counter=50
-persist.radio.fd.counter=15
-persist.radio.fd.off.counter=5
-persist.radio.fd.r8.counter=15
-persist.radio.fd.off.r8.counter=5
 ro.mtk_flight_mode_power_off_md=1
 ro.mtk_sim_hot_swap=1
-ro.mtk_world_phone=1
-ro.mtk_md_world_mode_support=1
+#ro.mtk_world_phone=1
+#ro.mtk_md_world_mode_support=1
 ro.mtk_cta_set=1
 ro.mtk_lte_support=1
 ro.mtk_rild_read_imsi=1
@@ -60,8 +56,13 @@ ro.boot.opt_md1_support=5
 ro.boot.opt_c2k_lte_mode=0
 ro.boot.opt_ps1_rat=Lf/Lt/W/T/G
 ro.boot.opt_lte_support=1
-# fix ril
+# fixed ril
 ril.current.share_modem=2
+ro.mtk_world_phone_policy=0
+persist.radio.fd.counter=15
+persist.radio.fd.off.counter=5
+persist.radio.fd.r8.counter=15
+persist.radio.fd.off.r8.counter=5
 
 # other things
 ro.mediatek.chip_ver=S01
