@@ -60,6 +60,8 @@ ro.boot.opt_md1_support=5
 ro.boot.opt_c2k_lte_mode=0
 ro.boot.opt_ps1_rat=Lf/Lt/W/T/G
 ro.boot.opt_lte_support=1
+# fix ril
+ril.current.share_modem=2
 
 # other things
 ro.mediatek.chip_ver=S01
