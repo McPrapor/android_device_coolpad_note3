@@ -1,6 +1,6 @@
 LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
-LOCAL_SRC_FILES := misc/atomic.cpp
+LOCAL_SRC_FILES := atomic.cpp
 LOCAL_MODULE := libshim_atomic
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 LOCAL_CFLAGS := -O3 -Wno-unused-variable -Wno-unused-parameter
