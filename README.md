@@ -87,12 +87,12 @@ cd ~/aex/oreo
 ```
 Put manifest with our repos:
 ```
-echo "<?xml version="1.0" encoding="UTF-8"?>
+echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
 <manifest>
-        <remote fetch="git://github.com/" name="gh" />
-        <project path="kernel/coolpad/note3" name="McPrapor/kernel_misu" remote="github" revision="master"/>
-        <project path="device/coolpad/note3" name="McPrapor/android_device_htc_v36bml" remote="github" revision="o-8.1.0"/>
-        <project path="vendor/coolpad/note3" name="McPrapor/android_vendor_htc_v36bml" remote="github" revision="o-8.1.0"/>
+        <remote fetch=\"git://github.com/\" name=\"gh\" />
+        <project path=\"kernel/coolpad/note3\" name=\"McPrapor/kernel_misu\" remote="\github\" revision=\"master\"/>
+        <project path=\"device/coolpad/note3\" name=\"McPrapor/android_device_htc_v36bml\" remote=\"github\" revision=\"o-8.1.0\"/>
+        <project path=\"vendor/coolpad/note3\" name=\"McPrapor/android_vendor_htc_v36bml\" remote=\"github\" revision=\"o-8.1.0\"/>
  </manifest>" > .repo/local_manifests/roomservice.xml
 ``` 
 Init source tree with AEX sources:
