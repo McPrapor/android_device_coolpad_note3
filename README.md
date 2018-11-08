@@ -1,5 +1,4 @@
 # HTC Desire 628 dual sim - AEX 5.x (Oreo 8.1.0)
-==============
 
 This branch is device for building of the Android Oreo 8.1.0 AOSP/AEX ROMs.
 
@@ -7,8 +6,10 @@ This branch is device for building of the Android Oreo 8.1.0 AOSP/AEX ROMs.
 
 # About Device
 
-HTC Desire 628 dual sim(htc_v36bml_dugl)
 ![HTC Desire 628 dual sim](https://www.htc.com/managed-assets/shared/desktop/smartphones/htc-desire-628-dual-sim/pdp/Desire-628-DS-PDP-Desktop-Buy-Now.png "HTC Desire 628 dual sim")
+HTC Desire 628 dual sim(htc_v36bml_dugl)
+
+---
 
 ### Specifications
 
@@ -29,7 +30,6 @@ Front Camera | 5MP, Int. 5MP
 # Build Information
 
 ## Works
--------------
  * Micro SD support
  * Vibration
  * MTP and Mass Storage modes
@@ -37,16 +37,17 @@ Front Camera | 5MP, Int. 5MP
  * Offline charging 
  * Adjustable brightness
 
-## Testing...
 -------------
+## Testing...
  * RIL
  * Operator name
  * Hardware acceleration
  * Wifi
  * Bluetooth
- 
-## Broken/Bugs
+
 -------------
+## Broken/Bugs
+
  * Auto brightness
  * Rotation
  * Camera rear/front (photographs only)
@@ -61,3 +62,37 @@ Front Camera | 5MP, Int. 5MP
  * Video_Camera
  * Flashlight (statusbar and camera)
  * Audio (no speaker output)
+-------------
+
+# Build ROM
+Use server/virtual with Ubuntu 16.04 Xenial.
+
+Install packages:
+  apt-get update
+  apt-get install openjdk-8-jdk android-tools-adb bc bison build-essential curl flex g++-multilib gcc-multilib gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev libesd0-dev liblz4-tool libncurses5-dev libsdl1.2-dev libssl-dev libwxgtk3.0-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc yasm zip zlib1g-dev git wget curl git
+
+Install repo tool:
+  mkdir -p ~/bin
+  wget 'https://storage.googleapis.com/git-repo-downloads/repo' -P ~/bin
+  chmod +x ~/bin/repo
+  git config --global user.name "Your Name"
+  git config --global user.email "your@email.com"
+
+Make android source tree directories:
+  mkdir -p ~/aex/oreo/.repo/local_manifests/
+  cd ~/aex/oreo
+
+Put manifest with our repos:
+  echo "<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+        <remote fetch="git://github.com/" name="gh" />
+        <project path="kernel/coolpad/note3" name="McPrapor/kernel_misu" remote="github" revision="master"/>
+        <project path="device/coolpad/note3" name="McPrapor/android_device_htc_v36bml" remote="github" revision="o-8.1.0"/>
+        <project path="vendor/coolpad/note3" name="McPrapor/android_vendor_htc_v36bml" remote="github" revision="o-8.1.0"/>
+ </manifest>" > .repo/local_manifests/roomservice.xml
+ 
+Init source tree with AEX sources:
+  repo init -u git://github.com/AospExtended/manifest.git -b 8.1.x
+
+Run build:
+  cd /root/aex/oreo/ ; repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags ; . build/envsetup.sh ; lunch full_note3-userdebug ; mka aex -j$(nproc --all)
