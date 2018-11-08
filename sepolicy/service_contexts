@@ -1,0 +1,4 @@
+PQ                                        u:object_r:pq_service:s0
+egistec.ets.service.daemon                u:object_r:etsd_service:s0
+edgegestureservice                        u:object_r:edge_gesture_service:s0
+theme                                     u:object_r:theme_service:s0

@@ -1,0 +1,8 @@
+allow surfaceflinger proc_ged:file r_file_perms;
+allow surfaceflinger proc_m4u:file r_file_perms;
+allow surfaceflinger proc_mtk_cmdq:file r_file_perms;
+allow surfaceflinger proc_chip_hwcode:file r_file_perms;
+
+allow surfaceflinger cmdq_device:chr_file r_file_perms;
+
+allow surfaceflinger pq_service:service_manager find;

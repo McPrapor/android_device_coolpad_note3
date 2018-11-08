@@ -1,0 +1,22 @@
+type ril-daemon-mtk_exec, exec_type, file_type;
+type ril-daemon-mtk, domain;
+
+init_daemon_domain(ril-daemon-mtk)
+net_domain(ril-daemon-mtk)
+
+vndbinder_use(ril-daemon-mtk)
+
+allow ril-daemon-mtk ccci_device:chr_file rw_file_perms;
+allow ril-daemon-mtk radio_device:dir search;
+allow ril-daemon-mtk devpts:chr_file rw_file_perms;
+allow ril-daemon-mtk sysfs_ccci:dir search;
+allow ril-daemon-mtk sysfs_ccci:file r_file_perms;
+
+allow ril-daemon-mtk self:capability { net_admin };
+allowxperm ril-daemon-mtk self:udp_socket ioctl { SIOCDELRT SIOCSIFFLAGS SIOCSIFADDR SIOCKILLADDR SIOCDEVPRIVATE SIOCDEVPRIVATE_1 };
+
+set_prop(ril-daemon-mtk, radio_prop)
+set_prop(ril-daemon-mtk, ril_mux_report_case_prop)
+
+# Access to wake locks
+wakelock_use(ril-daemon-mtk)

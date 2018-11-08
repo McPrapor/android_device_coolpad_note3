@@ -1,0 +1,23 @@
+type nvram_daemon_exec, exec_type, file_type;
+type nvram_daemon, domain;
+
+init_daemon_domain(nvram_daemon)
+
+allow nvram_daemon block_device:dir search;
+allow nvram_daemon nvram_device:blk_file rw_file_perms;
+allow nvram_daemon proinfo_device:blk_file rw_file_perms;
+allow nvram_daemon nvdata_file:dir create_dir_perms;
+allow nvram_daemon nvdata_file:file create_file_perms;
+allow nvram_daemon nvdata_file:lnk_file r_file_perms;
+allow nvram_daemon als_ps_device:chr_file r_file_perms;
+allow nvram_daemon mtk-adc-cali_device:chr_file rw_file_perms;
+allow nvram_daemon gsensor_device:chr_file r_file_perms;
+allow nvram_daemon msensor_device:chr_file r_file_perms;
+allow nvram_daemon gyroscope_device:chr_file r_file_perms;
+allow nvram_daemon sysfs_boot_mode:file r_file_perms;
+
+dontaudit nvram_daemon shell_exec:file execute;
+
+set_prop(nvram_daemon, nvram_prop)
+set_prop(nvram_daemon, wmt_prop)
+set_prop(nvram_daemon, wifi_5g_prop)

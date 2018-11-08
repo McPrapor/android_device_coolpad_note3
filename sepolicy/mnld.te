@@ -1,0 +1,30 @@
+type mnld_exec, exec_type, file_type;
+type mnld, domain;
+
+init_daemon_domain(mnld)
+net_domain(mnld)
+
+allow mnld gps_device:chr_file rw_file_perms;
+allow mnld stpgps_device:chr_file rw_file_perms;
+
+allow mnld gps_data_file:dir create_dir_perms;
+allow mnld gps_data_file:file create_file_perms;
+
+allow mnld agpsd_data_file:dir create_dir_perms;
+allow mnld agpsd_data_file:sock_file create_file_perms;
+
+allow mnld mnld_data_file:dir rw_dir_perms;
+allow mnld mnld_data_file:sock_file create_file_perms;
+allow mnld mnld_data_file:file create_file_perms;
+
+allow mnld nvdata_file:dir r_dir_perms;
+allow mnld nvdata_file:file r_file_perms;
+allow mnld nvdata_file:lnk_file r_file_perms;
+
+allow mnld sysfs_gps_file:dir search;
+allow mnld sysfs_gps_file:file rw_file_perms;
+allow mnld sysfs_boot_mode:file r_file_perms;
+
+allow mnld hal_gnss_default:unix_dgram_socket sendto;
+
+set_prop(mnld, mnld_prop)

@@ -1,0 +1,1 @@
+allow mediaserver proc_ged:file r_file_perms;

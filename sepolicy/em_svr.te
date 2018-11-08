@@ -1,0 +1,10 @@
+type em_svr_exec, exec_type, file_type;
+type em_svr, domain;
+
+init_daemon_domain(em_svr)
+
+allow em_svr gsensor_device:chr_file r_file_perms;
+allow em_svr gyroscope_device:chr_file r_file_perms;
+allow em_svr nvdata_file:dir rw_dir_perms;
+allow em_svr nvdata_file:file rw_file_perms;
+allow em_svr nvdata_file:lnk_file r_file_perms;

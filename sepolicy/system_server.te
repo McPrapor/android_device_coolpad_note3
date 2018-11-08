@@ -1,1 +1,17 @@
-allow system_server mobicore_data_file:dir r_dir_perms;
+# Graphics
+allow system_server proc_ged:file r_file_perms;
+
+# RGB Display Color
+allow system_server sysfs_display_color:file rw_file_perms;
+
+# Fast Charge
+allow system_server sysfs_fast_charge:file rw_file_perms;
+
+# Smart Wake
+allow system_server sysfs_smartwake:file rw_file_perms;
+
+# External storage
+allow system_server storage_stub_file:dir { getattr };
+
+# Color engine
+allow system_server theme_service:service_manager { add find };
