@@ -1,8 +1,7 @@
-# HTC Desire 628 dual sim - AOSP 8.1.0
+# HTC Desire 628 dual sim - AEX 5.x (Oreo 8.1.0)
 ==============
 
-This branch is vendor for building of the Android Oreo 8.1.0 AOSP/AEX ROMs. For more information about building the ROM.
-
+This branch is device for building of the Android Oreo 8.1.0 AOSP/AEX ROMs.
 
 ---
 
@@ -29,38 +28,36 @@ Front Camera | 5MP, Int. 5MP
 
 # Build Information
 
+## Works
+-------------
+ * Micro SD support
+ * Vibration
+ * MTP and Mass Storage modes
+ * RAM and ROM
+ * Offline charging 
+ * Adjustable brightness
+
 ## Testing...
 -------------
-
-## Broken/Bugs
-
--------------
-
-## To be checked
- 
+ * RIL
+ * Operator name
  * Hardware acceleration
  * Wifi
  * Bluetooth
- * Vibration
- * Audio
- * Flashlight (statusbar and camera)
- * Micro SD support
- * MTP and Mass Storage modes
- * RAM and ROM
+ 
+## Broken/Bugs
+-------------
+ * Auto brightness
  * Rotation
  * Camera rear/front (photographs only)
  * All sensors
  * Doze
- * Offline charging
- * RIL
- * Operator name
- * Auto brightness
- * Adjustable brightness
  * Screen Recording
  * Camera rear/front (video)
- * Fingerprint scanner
  * OTG
  * GPS
  * Audio over Bluetooth (music, calls .etc)
  * Hotspot
  * Video_Camera
+ * Flashlight (statusbar and camera)
+ * Audio (no speaker output)
