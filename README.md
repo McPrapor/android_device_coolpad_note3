@@ -7,6 +7,7 @@ This branch is device for building of the Android Oreo 8.1.0 AOSP/AEX ROMs.
 # About Device
 
 ![HTC Desire 628 dual sim](https://www.htc.com/managed-assets/shared/desktop/smartphones/htc-desire-628-dual-sim/pdp/Desire-628-DS-PDP-Desktop-Buy-Now.png "HTC Desire 628 dual sim")
+
 HTC Desire 628 dual sim(htc_v36bml_dugl)
 
 ---
