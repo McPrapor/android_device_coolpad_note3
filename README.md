@@ -95,6 +95,7 @@ cat <<EOF > .repo/local_manifests/roomservice.xml
         <project path="kernel/coolpad/note3" name="McPrapor/kernel_misu" remote="github" revision="master"/>
         <project path="device/coolpad/note3" name="McPrapor/android_device_htc_v36bml" remote="github" revision="o-8.1.0"/>
         <project path="vendor/coolpad/note3" name="McPrapor/android_vendor_htc_v36bml" remote="github" revision="o-8.1.0"/>
+        <project path="hardware/coolpad/note3" name="McPrapor/android_hardware_htc_v36bml" remote="github" revision="o-8.1.0"/>
 </manifest>
 EOF
 ``` 
