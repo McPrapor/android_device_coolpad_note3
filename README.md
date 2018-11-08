@@ -40,7 +40,7 @@ Front Camera | 5MP, Int. 5MP
 
 -------------
 ## Testing...
- * RIL
+ * RIL(incoming-outgoing calls - OK, send-receive sms - OK, gprs - ?, settings no imei/imeisv)
  * Operator name
  * Hardware acceleration
  * Wifi
