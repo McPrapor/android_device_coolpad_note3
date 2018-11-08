@@ -68,31 +68,54 @@ Front Camera | 5MP, Int. 5MP
 Use server/virtual with Ubuntu 16.04 Xenial.
 
 Install packages:
-  apt-get update
-  apt-get install openjdk-8-jdk android-tools-adb bc bison build-essential curl flex g++-multilib gcc-multilib gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev libesd0-dev liblz4-tool libncurses5-dev libsdl1.2-dev libssl-dev libwxgtk3.0-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc yasm zip zlib1g-dev git wget curl git
-
+```
+apt-get update
+apt-get install openjdk-8-jdk android-tools-adb bc bison build-essential curl flex g++-multilib gcc-multilib gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev libesd0-dev liblz4-tool libncurses5-dev libsdl1.2-dev libssl-dev libwxgtk3.0-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc yasm zip zlib1g-dev git wget curl git
+```
 Install repo tool:
-  mkdir -p ~/bin
-  wget 'https://storage.googleapis.com/git-repo-downloads/repo' -P ~/bin
-  chmod +x ~/bin/repo
-  git config --global user.name "Your Name"
-  git config --global user.email "your@email.com"
-
+```
+mkdir -p ~/bin
+wget 'https://storage.googleapis.com/git-repo-downloads/repo' -P ~/bin
+chmod +x ~/bin/repo
+git config --global user.name "Your Name"
+git config --global user.email "your@email.com"
+```
 Make android source tree directories:
-  mkdir -p ~/aex/oreo/.repo/local_manifests/
-  cd ~/aex/oreo
-
+```
+mkdir -p ~/aex/oreo/.repo/local_manifests/
+cd ~/aex/oreo
+```
 Put manifest with our repos:
-  echo "<?xml version="1.0" encoding="UTF-8"?>
+```
+echo "<?xml version="1.0" encoding="UTF-8"?>
 <manifest>
         <remote fetch="git://github.com/" name="gh" />
         <project path="kernel/coolpad/note3" name="McPrapor/kernel_misu" remote="github" revision="master"/>
         <project path="device/coolpad/note3" name="McPrapor/android_device_htc_v36bml" remote="github" revision="o-8.1.0"/>
         <project path="vendor/coolpad/note3" name="McPrapor/android_vendor_htc_v36bml" remote="github" revision="o-8.1.0"/>
  </manifest>" > .repo/local_manifests/roomservice.xml
- 
+``` 
 Init source tree with AEX sources:
-  repo init -u git://github.com/AospExtended/manifest.git -b 8.1.x
+```
+repo init -u git://github.com/AospExtended/manifest.git -b 8.1.x
+```
 
+Sync source code from repos:
+```
+repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
+```
+Export some shell functions and make lunch:
+```
+. build/envsetup.sh
+lunch full_note3-userdebug
+```
 Run build:
-  cd /root/aex/oreo/ ; repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags ; . build/envsetup.sh ; lunch full_note3-userdebug ; mka aex -j$(nproc --all)
+```
+mka aex -j$(nproc --all)
+```
+
+One-line build command:
+```
+cd /root/aex/oreo/ ; repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags ; . build/envsetup.sh ; lunch full_note3-userdebug ; mka aex -j$(nproc --all)
+```
+
