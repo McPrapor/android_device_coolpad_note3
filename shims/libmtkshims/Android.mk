@@ -5,6 +5,7 @@ LOCAL_PATH := $(call my-dir)
     LOCAL_SRC_FILES := atomic.cpp
     LOCAL_MODULE := libmtkshim_atomic
     LOCAL_PROPRIETARY_MODULE := true
+    LOCAL_C_INCLUDES += system/core/libcutils/include/
     include $(BUILD_SHARED_LIBRARY)
 
 # mtk log symbols (xlog)
