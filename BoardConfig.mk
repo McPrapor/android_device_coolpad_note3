@@ -204,9 +204,9 @@ PRODUCT_PACKAGES += \
     libhtcxlog_shim \
     libshim_atomic
 
-#   libatomic_shim \
-#    /system/lib/libcutils.so|libatomic_shim.so \
-#    /system/lib64/libcutils.so|libatomic_shim.so \
+#   libatomic_shim
+#    /system/lib/libcutils.so|libatomic_shim.so
+#    /system/lib64/libcutils.so|libatomic_shim.so
 
 TARGET_LD_SHIM_LIBS := \
     $(TARGET_LD_SHIM_LIBS) \
