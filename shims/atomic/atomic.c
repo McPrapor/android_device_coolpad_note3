@@ -14,8 +14,12 @@
  * limitations under the License.
  */
 
+#include <cutils/atomic.h>
+
+/*
 #include <string>
 #define ANDROID_ATOMIC_INLINE
 extern "C" {
 #include <cutils/atomic.h>
 }
+*/
