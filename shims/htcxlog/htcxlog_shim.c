@@ -2,11 +2,6 @@
 #include <string.h>
 #include <stdarg.h>
 
-#define ANDROID_ATOMIC_INLINE
-
-#include <cutils/atomic.h>
-
-
 #ifndef __unused
 #define __unused  __attribute__((__unused__))
 #endif
