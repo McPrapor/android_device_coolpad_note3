@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 The LineageOS Project
+ * Copyright (C) 2007 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,12 +14,13 @@
  * limitations under the License.
  */
 
-#include <cutils/atomic.h>
-
 /*
-#include <string>
+ * Generate non-inlined versions of android_atomic functions.
+ * Nobody should be using these, but some binary blobs currently (late 2014)
+ * are.
+ * If you read this in 2015 or later, please try to delete this file.
+ */
+
 #define ANDROID_ATOMIC_INLINE
-extern "C" {
+
 #include <cutils/atomic.h>
-}
-*/
