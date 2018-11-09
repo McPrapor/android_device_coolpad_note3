@@ -153,17 +153,17 @@ PRODUCT_PACKAGES += \
     libmtkshim_gui \
     libmtkshim_omx \
     libmtkshim_camera \
-    libmtkshim_gps
+    libmtkshim_gps \
+    libshim_atomic
 
 TARGET_INCLUDE_XLOG_SYMBOLS := false
 TARGET_INCLUDE_AUDIO_SYMBOLS := true
 TARGET_INCLUDE_UI_SYMBOLS := true
 TARGET_INCLUDE_GUI_SYMBOLS := true
 TARGET_INCLUDE_CAMERA_SYMBOLS := true
-TARGET_LIBSHIM_ATOMIC_SYMBOLS := true
+TARGET_INCLUDE_ATOMIC_SYMBOLS := true
 
-ifeq ($(TARGET_LIBSHIM_ATOMIC_SYMBOLS),true)
-PRODUCT_PACKAGES += libshim_atomic
+ifeq ($(TARGET_INCLUDE_ATOMIC_SYMBOLS),true)
 LINKER_FORCED_SHIM_LIBS := $(LINKER_FORCED_SHIM_LIBS):/system/lib/libcutils.so|libshim_atomic.so:/system/lib64/libcutils.so|libshim_atomic.so
 endif
 ifeq ($(TARGET_INCLUDE_XLOG_SYMBOLS),true)
