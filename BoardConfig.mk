@@ -144,50 +144,6 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
-# Include symbols
-# Shim libraries
-PRODUCT_PACKAGES += \
-    libmtkshim_log \
-    libmtkshim_audio \
-    libmtkshim_ui \
-    libmtkshim_gui \
-    libmtkshim_omx \
-    libmtkshim_camera \
-    libmtkshim_gps 
-
-TARGET_INCLUDE_XLOG_SYMBOLS := false
-TARGET_INCLUDE_AUDIO_SYMBOLS := true
-TARGET_INCLUDE_UI_SYMBOLS := true
-TARGET_INCLUDE_GUI_SYMBOLS := true
-TARGET_INCLUDE_CAMERA_SYMBOLS := true
-
-ifeq ($(TARGET_INCLUDE_XLOG_SYMBOLS),true)
-LINKER_FORCED_SHIM_LIBS := /system/lib/liblog.so|libmtkshim_log.so:/system/lib64/liblog.so|libmtkshim_log.so
-endif
-ifeq ($(TARGET_INCLUDE_AUDIO_SYMBOLS),true)
-LINKER_FORCED_SHIM_LIBS := $(LINKER_FORCED_SHIM_LIBS):/system/vendor/lib/hw/audio.primary.$(TARGET_BOARD_PLATFORM).so|libmtkshim_audio.so:/system/vendor/lib64/hw/audio.primary.$(TARGET_BOARD_PLATFORM).so|libmtkshim_audio.so
-endif
-ifeq ($(TARGET_INCLUDE_UI_SYMBOLS),true)
-LINKER_FORCED_SHIM_LIBS := $(LINKER_FORCED_SHIM_LIBS):/system/lib/libui.so|libmtkshim_ui.so:/system/lib64/libui.so|libmtkshim_ui.so
-endif
-ifeq ($(TARGET_INCLUDE_GUI_SYMBOLS),true)
-LINKER_FORCED_SHIM_LIBS := $(LINKER_FORCED_SHIM_LIBS):/system/lib/libgui.so|libmtkshim_gui.so:/system/lib64/libgui.so|libmtkshim_gui.so
-endif
-ifeq ($(TARGET_INCLUDE_OMX_SYMBOLS),true)
-LINKER_FORCED_SHIM_LIBS := $(LINKER_FORCED_SHIM_LIBS):/system/vendor/lib/libMtkOmxVdec.so|libmtkshim_omx.so
-endif
-ifeq ($(TARGET_INCLUDE_GPS_SYMBOLS),true)
-LINKER_FORCED_SHIM_LIBS := $(LINKER_FORCED_SHIM_LIBS):/system/vendor/bin/mtk_agpsd|libmtkshim_gps.so
-endif
-ifeq ($(TARGET_INCLUDE_CAMERA_SYMBOLS),true)
-LINKER_FORCED_SHIM_LIBS := $(LINKER_FORCED_SHIM_LIBS):/system/vendor/lib/libfeatureio.so|libmtkshim_camera.so:/system/vendor/lib64/libfeatureio.so|libmtkshim_camera.so:/system/vendor/lib/libcam.camnode.so|libmtkshim_camera.so:/system/vendor/lib64/libcam.camnode.so|libmtkshim_camera.so
-endif
-# Replace xlog with htcxlog
-#LINKER_FORCED_SHIM_LIBS := $(LINKER_FORCED_SHIM_LIBS):/system/lib/liblog.so|libhtcxlog_shim.so:/system/lib64/liblog.so|libhtcxlog_shim.so
-TARGET_LD_SHIM_LIBS := $(TARGET_LD_SHIM_LIBS):/system/lib/liblog.so|libhtcxlog_shim.so:/system/lib64/liblog.so|libhtcxlog_shim.so
-# Return atomic back
-PRODUCT_PACKAGES += libatomic_shim
-TARGET_LD_SHIM_LIBS := $(TARGET_LD_SHIM_LIBS):/system/lib/libcutils.so|libatomic_shim.so:/system/lib64/libcutils.so|libatomic_shim.so
 
 
 #audio
@@ -227,6 +183,43 @@ BOARD_SEPOLICY_DIRS += $(LOCAL_PATH)/sepolicy
 # FIX updater_script
 TARGET_RELEASETOOLS_EXTENSIONS := $(LOCAL_PATH)/releasetools.py
 
+
+#SHIMS
+TARGET_INCLUDE_XLOG_SYMBOLS := false
+TARGET_INCLUDE_AUDIO_SYMBOLS := true
+TARGET_INCLUDE_UI_SYMBOLS := true
+TARGET_INCLUDE_GUI_SYMBOLS := true
+TARGET_INCLUDE_CAMERA_SYMBOLS := true
+
+# Include symbols
+# Shim libraries
+PRODUCT_PACKAGES += \
+    libmtkshim_log \
+    libmtkshim_audio \
+    libmtkshim_ui \
+    libmtkshim_gui \
+    libmtkshim_omx \
+    libmtkshim_camera \
+    libmtkshim_gps \
+    libatomic_shim \
+    ibhtcxlog_shim
+
+TARGET_LD_SHIM_LIBS := \
+    $(TARGET_LD_SHIM_LIBS) \
+    /system/lib/libcutils.so|libatomic_shim.so \
+    /system/lib64/libcutils.so|libatomic_shim.so \
+    /system/lib/liblog.so|libhtcxlog_shim.so \
+    /system/lib64/liblog.so|libhtcxlog_shim.so \
+    /system/vendor/lib/hw/audio.primary.$(TARGET_BOARD_PLATFORM).so|libmtkshim_audio.so \
+    /system/vendor/lib64/hw/audio.primary.$(TARGET_BOARD_PLATFORM).so|libmtkshim_audio.so \
+    /system/lib/libui.so|libmtkshim_ui.so \
+    /system/lib64/libui.so|libmtkshim_ui.so \
+    /system/lib/libgui.so|libmtkshim_gui.so \
+    /system/lib64/libgui.so|libmtkshim_gui.so \
+    /system/vendor/lib/libfeatureio.so|libmtkshim_camera.so \
+    /system/vendor/lib64/libfeatureio.so|libmtkshim_camera.so \
+    /system/vendor/lib/libcam.camnode.so|libmtkshim_camera.so \
+    /system/vendor/lib64/libcam.camnode.so|libmtkshim_camera.so
 
 # RIL
 TARGET_RIL_VARIANT := ../../../hardware/coolpad/note3/ril
