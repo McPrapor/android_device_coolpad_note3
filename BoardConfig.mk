@@ -193,8 +193,9 @@ TARGET_INCLUDE_CAMERA_SYMBOLS := true
 # Include symbols
 # Shim libraries
 # Add to PRODUCT_PACKAGES at device.mk
-#    /system/lib/libcutils.so|libmtkshim_atomic.so \
-#    /system/lib64/libcutils.so|libmtkshim_atomic.so \
+#    /system/lib/libcutils.so|libmtkshim_atomic.so
+#    /system/lib64/libcutils.so|libmtkshim_atomic.so
+
 TARGET_LD_SHIM_LIBS := \
     $(TARGET_LD_SHIM_LIBS) \
     /system/lib/liblog.so|libhtcxlog_shim.so \
