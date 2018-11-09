@@ -201,13 +201,13 @@ PRODUCT_PACKAGES += \
     libmtkshim_camera \
     libmtkshim_gps \
     libhtcxlog_shim \
-    libshim_atomic
+    libcutils_shim
 
 
 TARGET_LD_SHIM_LIBS := \
     $(TARGET_LD_SHIM_LIBS) \
-    /system/lib/libcutils.so|libshim_atomic.so \
-    /system/lib64/libcutils.so|libshim_atomic.so \
+    /system/lib/libcutils.so|libcutils_shim.so \
+    /system/lib64/libcutils.so|libcutils_shim.so \
     /system/lib/liblog.so|libhtcxlog_shim.so \
     /system/lib64/liblog.so|libhtcxlog_shim.so \
     /system/vendor/lib/hw/audio.primary.$(TARGET_BOARD_PLATFORM).so|libmtkshim_audio.so \
