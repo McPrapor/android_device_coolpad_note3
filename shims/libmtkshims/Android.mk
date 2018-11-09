@@ -1,5 +1,12 @@
 LOCAL_PATH := $(call my-dir)
 
+# atomic symbols
+    include $(CLEAR_VARS)
+    LOCAL_SRC_FILES := atomic.cpp
+    LOCAL_MODULE := libmtkshim_atomic
+    LOCAL_PROPRIETARY_MODULE := true
+    include $(BUILD_SHARED_LIBRARY)
+
 # mtk log symbols (xlog)
 ifeq ($(TARGET_INCLUDE_XLOG_SYMBOLS),true)
     include $(CLEAR_VARS)
