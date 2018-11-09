@@ -8,9 +8,15 @@ PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 ## Custom shims
 PRODUCT_PACKAGES += \
+    libmtkshim_log \
+    libmtkshim_audio \
+    libmtkshim_ui \
+    libmtkshim_gui \
+    libmtkshim_omx \
+    libmtkshim_camera \
+    libmtkshim_gps \
     libhtcxlog_shim \
     libmtkshim_atomic
-#    libatomic_shim
 
 # Manifest
 PRODUCT_COPY_FILES += \
