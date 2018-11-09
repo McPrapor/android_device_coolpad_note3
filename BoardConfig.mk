@@ -47,7 +47,7 @@ BOARD_HAVE_BLUETOOTH := true
 BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
 
 # Recovery
-#RECOVERY_VARIANT := twrp
+RECOVERY_VARIANT := twrp_
 
 # TWRP
 ifeq ($(RECOVERY_VARIANT), twrp)
@@ -201,7 +201,8 @@ PRODUCT_PACKAGES += \
     libmtkshim_omx \
     libmtkshim_camera \
     libmtkshim_gps \
-    libhtcxlog_shim
+    libhtcxlog_shim \
+    libshim_atomic
 
 
 TARGET_LD_SHIM_LIBS := \
