@@ -6,5 +6,6 @@ LOCAL_MULTILIB := both
 LOCAL_MODULE := libhtcxlog_shim
 LOCAL_MODULE_TAGS := optional
 LOCAL_C_INCLUDES += system/core/liblog/include/
+LOCAL_C_INCLUDES += system/core/libcutils/include/
 LOCAL_SHARED_LIBRARIES := liblog
 include $(BUILD_SHARED_LIBRARY)
