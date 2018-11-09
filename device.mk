@@ -7,8 +7,9 @@ PRODUCT_AAPT_CONFIG := normal xhdpi xxhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 ## Custom shims
-#PRODUCT_PACKAGES += \
-#    libhtcxlog_shim \
+PRODUCT_PACKAGES += \
+    libhtcxlog_shim \
+    libmtkshim_atomic
 #    libatomic_shim
 
 # Manifest
