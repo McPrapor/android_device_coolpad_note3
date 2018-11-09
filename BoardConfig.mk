@@ -47,7 +47,8 @@ BOARD_HAVE_BLUETOOTH := true
 BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
 
 # Recovery
-RECOVERY_VARIANT := twrp_
+# Currently broken
+#RECOVERY_VARIANT := twrp
 
 # TWRP
 ifeq ($(RECOVERY_VARIANT), twrp)
@@ -143,8 +144,6 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
-
-
 
 #audio
 TARGET_HAS_PRE_N_AUDIO := true
