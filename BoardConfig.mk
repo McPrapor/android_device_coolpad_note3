@@ -192,19 +192,7 @@ TARGET_INCLUDE_CAMERA_SYMBOLS := true
 
 # Include symbols
 # Shim libraries
-PRODUCT_PACKAGES += \
-    libmtkshim_log \
-    libmtkshim_audio \
-    libmtkshim_ui \
-    libmtkshim_gui \
-    libmtkshim_omx \
-    libmtkshim_camera \
-    libmtkshim_gps \
-    libhtcxlog_shim \
-    libmtkshim_atomic
-#    libhtcxlog_shim \
-#    libcutils_shim
-
+# Add to PRODUCT_PACKAGES at device.mk
 
 TARGET_LD_SHIM_LIBS := \
     $(TARGET_LD_SHIM_LIBS) \
