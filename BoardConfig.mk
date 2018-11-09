@@ -153,21 +153,16 @@ PRODUCT_PACKAGES += \
     libmtkshim_gui \
     libmtkshim_omx \
     libmtkshim_camera \
-    libmtkshim_gps \
-    libshim_atomic
+    libmtkshim_gps 
 
 TARGET_INCLUDE_XLOG_SYMBOLS := false
 TARGET_INCLUDE_AUDIO_SYMBOLS := true
 TARGET_INCLUDE_UI_SYMBOLS := true
 TARGET_INCLUDE_GUI_SYMBOLS := true
 TARGET_INCLUDE_CAMERA_SYMBOLS := true
-TARGET_INCLUDE_ATOMIC_SYMBOLS := true
 
-ifeq ($(TARGET_INCLUDE_ATOMIC_SYMBOLS),true)
-LINKER_FORCED_SHIM_LIBS := $(LINKER_FORCED_SHIM_LIBS):/system/lib/libcutils.so|libshim_atomic.so:/system/lib64/libcutils.so|libshim_atomic.so
-endif
 ifeq ($(TARGET_INCLUDE_XLOG_SYMBOLS),true)
-LINKER_FORCED_SHIM_LIBS := $(LINKER_FORCED_SHIM_LIBS)/system/lib/liblog.so|libmtkshim_log.so:/system/lib64/liblog.so|libmtkshim_log.so
+LINKER_FORCED_SHIM_LIBS := /system/lib/liblog.so|libmtkshim_log.so:/system/lib64/liblog.so|libmtkshim_log.so
 endif
 ifeq ($(TARGET_INCLUDE_AUDIO_SYMBOLS),true)
 LINKER_FORCED_SHIM_LIBS := $(LINKER_FORCED_SHIM_LIBS):/system/vendor/lib/hw/audio.primary.$(TARGET_BOARD_PLATFORM).so|libmtkshim_audio.so:/system/vendor/lib64/hw/audio.primary.$(TARGET_BOARD_PLATFORM).so|libmtkshim_audio.so
@@ -190,6 +185,10 @@ endif
 # Replace xlog with htcxlog
 #LINKER_FORCED_SHIM_LIBS := $(LINKER_FORCED_SHIM_LIBS):/system/lib/liblog.so|libhtcxlog_shim.so:/system/lib64/liblog.so|libhtcxlog_shim.so
 TARGET_LD_SHIM_LIBS := $(TARGET_LD_SHIM_LIBS):/system/lib/liblog.so|libhtcxlog_shim.so:/system/lib64/liblog.so|libhtcxlog_shim.so
+# Return atomic back
+PRODUCT_PACKAGES += libatomic_shim
+TARGET_LD_SHIM_LIBS := $(TARGET_LD_SHIM_LIBS):/system/lib/libcutils.so|libatomic_shim.so:/system/lib64/libcutils.so|libatomic_shim.so
+
 
 #audio
 TARGET_HAS_PRE_N_AUDIO := true
