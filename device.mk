@@ -170,6 +170,34 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.boot.wificountrycode=00    
 
+# ThemeInterfacer
+PRODUCT_PACKAGES += \
+    ThemeInterfacer
+
+# Eleven
+PRODUCT_PACKAGES += \
+    Eleven
+
+# WallpaperPicker
+PRODUCT_PACKAGES += \
+    WallpaperPicker
+
+# Charger
+PRODUCT_PACKAGES += \
+    charger_res_images
+
+# Jelly
+PRODUCT_PACKAGES += \
+    Jelly
+
+# OmniStyle
+PRODUCT_PACKAGES += \
+    OmniStyle
+
+# OmniJaws
+PRODUCT_PACKAGES += \
+    OmniJaws
+
 ## Custom shims
 PRODUCT_PACKAGES += \
     libmtkshim_log \
