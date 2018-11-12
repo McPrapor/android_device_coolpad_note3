@@ -6,6 +6,10 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 PRODUCT_AAPT_CONFIG := normal xhdpi xxhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
+# Display
+PRODUCT_PACKAGES += \
+    libion
+
 # Gralloc
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-impl \
@@ -100,6 +104,71 @@ PRODUCT_PACKAGES += \
 # Audio Settings
 PRODUCT_PACKAGES += \
     libaudio_volume_jni
+
+# Audio
+PRODUCT_PACKAGES += \
+    audio_policy.default \
+    audio.r_submix.default \
+    audio.a2dp.default \
+    audio.usb.default \
+    libtinyalsa \
+    libtinycompress \
+    libtinymix \
+    libtinyxml
+
+PRODUCT_PACKAGES += \
+    android.hardware.audio@2.0-impl \
+    android.hardware.audio@2.0-service \
+    android.hardware.audio.effect@2.0-impl \
+    android.hardware.soundtrigger@2.0-impl
+
+PRODUCT_PACKAGES += \
+    android.hardware.drm@1.0-impl \
+    android.hardware.drm@1.0-service
+
+PRODUCT_COPY_FILES += \
+    frameworks/av/services/audiopolicy/config/audio_policy_volumes.xml:/system/vendor/etc/audio_policy_volumes.xml \
+    frameworks/av/services/audiopolicy/config/default_volume_tables.xml:/system/vendor/etc/default_volume_tables.xml \
+    frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:/system/vendor/etc/r_submix_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:/system/vendor/etc/usb_audio_policy_configuration.xml
+
+# Codecs
+PRODUCT_COPY_FILES += \
+    frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/vendor/etc/media_codecs_google_audio.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/vendor/etc/media_codecs_google_telephony.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:system/vendor/etc/media_codecs_google_video_le.xml
+
+# Storage
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sys.sdcardfs=true
+    
+# Configs
+PRODUCT_COPY_FILES += \
+    vendor/mad/prebuilt/etc/apns-conf.xml:system/etc/apns-conf.xml \
+    vendor/mad/prebuilt/etc/ecc_list.xml:system/etc/ecc_list.xml \
+    vendor/mad/prebuilt/etc/spn-conf.xml:system/etc/spn-conf.xml
+
+# Messaging
+PRODUCT_PACKAGES += \
+    messaging
+    
+# Wifi
+PRODUCT_PACKAGES += \
+    android.hardware.wifi@1.0-service \
+    lib_driver_cmd_mt66xx \
+    libwpa_client \
+    hostapd \
+    wificond \
+    wifilogd \
+    wpa_supplicant
+
+PRODUCT_COPY_FILES += \
+    vendor/mad/prebuilt/etc/wifi/wpa_supplicant.conf:system/vendor/etc/wifi/wpa_supplicant.conf \
+    vendor/mad/prebuilt/etc/wifi/wpa_supplicant_overlay.conf:system/vendor/etc/wifi/wpa_supplicant_overlay.conf \
+    vendor/mad/prebuilt/etc/wifi/p2p_supplicant_overlay.conf:system/vendor/etc/wifi/p2p_supplicant_overlay.conf
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.boot.wificountrycode=00    
 
 ## Custom shims
 PRODUCT_PACKAGES += \
