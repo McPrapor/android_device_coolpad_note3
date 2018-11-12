@@ -144,9 +144,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     
 # Configs
 PRODUCT_COPY_FILES += \
-    vendor/mad/prebuilt/etc/apns-conf.xml:system/etc/apns-conf.xml \
-    vendor/mad/prebuilt/etc/ecc_list.xml:system/etc/ecc_list.xml \
-    vendor/mad/prebuilt/etc/spn-conf.xml:system/etc/spn-conf.xml
+    device/coolpad/note3/configs/apns-conf.xml:system/etc/apns-conf.xml \
+    device/coolpad/note3/configs/ecc_list.xml:system/etc/ecc_list.xml \
+    device/coolpad/note3/configs/spn-conf.xml:system/etc/spn-conf.xml
 
 # Messaging
 PRODUCT_PACKAGES += \
@@ -193,10 +193,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fingerprint.default
 
-# MDDB
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/mddb/BPLGUInfoCustomAppSrcP_MT6735_S00_0_1524V28P45_0504_0422_1_1_lwg_n:system/etc/mddb/BPLGUInfoCustomAppSrcP_MT6735_S00_0_1524V28P45_0504_0422_1_1_lwg_n \
-    $(LOCAL_PATH)/configs//mddb/DbgInfo_LR9.W1444.MD.LWTG.MP_MT6735_V36BML_0_1524V28P45_0504_0422_1_2016_04_22_15_26_1_lwg_n:system/etc/mddb/DbgInfo_LR9.W1444.MD.LWTG.MP_MT6735_V36BML_0_1524V28P45_0504_0422_1_2016_04_22_15_26_1_lwg_n
+## MDDB
+#PRODUCT_COPY_FILES += \
+#    $(LOCAL_PATH)/configs/mddb/BPLGUInfoCustomAppSrcP_MT6735_S00_0_1524V28P45_0504_0422_1_1_lwg_n:system/etc/mddb/BPLGUInfoCustomAppSrcP_MT6735_S00_0_1524V28P45_0504_0422_1_1_lwg_n \
+#    $(LOCAL_PATH)/configs//mddb/DbgInfo_LR9.W1444.MD.LWTG.MP_MT6735_V36BML_0_1524V28P45_0504_0422_1_2016_04_22_15_26_1_lwg_n:system/etc/mddb/DbgInfo_LR9.W1444.MD.LWTG.MP_MT6735_V36BML_0_1524V28P45_0504_0422_1_2016_04_22_15_26_1_lwg_n
 
 # Audio
 PRODUCT_COPY_FILES += \
