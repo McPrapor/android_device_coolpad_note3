@@ -280,6 +280,15 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     OmniJaws
 
+# WiFi Display
+# this property enables the user to access Google WFD settings.
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.debug.wfd.enable=1
+
+# SELinux
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    ro.build.selinux=1
+
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
