@@ -336,8 +336,7 @@ PRODUCT_PACKAGES += \
     Email \
     ExactCalculator \
     Gallery2 \
-    MusicFX \
-    UnifiedEmail
+    MusicFX
 
 # Vendor
 $(call inherit-product, vendor/coolpad/note3/note3-vendor.mk)
