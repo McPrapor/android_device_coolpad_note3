@@ -196,7 +196,8 @@ PRODUCT_PACKAGES += \
     libtinyalsa \
     libtinycompress \
     libtinymix \
-    libtinyxml
+    libtinyxml \
+    SoundRecorder
 
 PRODUCT_PACKAGES += \
     android.hardware.audio@2.0-impl \
