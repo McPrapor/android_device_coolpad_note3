@@ -330,6 +330,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.android.dataroaming=false \
     net.tethering.noprovisioning=true
 
+# Some more apps
+PRODUCT_PACKAGES += \
+    Terminal \
+    Email \
+    ExactCalculator \
+    Gallery2 \
+    MusicFX \
+    UnifiedEmail
+
 # Vendor
 $(call inherit-product, vendor/coolpad/note3/note3-vendor.mk)
 $(call inherit-product, vendor/coolpad/note3/note3-firmware-blobs.mk)
