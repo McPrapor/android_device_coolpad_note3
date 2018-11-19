@@ -22,19 +22,19 @@
     </path>
    <!-- 2-in-1 speaker output-->        
     <path name="two_in_one_speaker_output" value="turnon">
-        <kctl name="Ext_Speaker_Amp_Switch" value="On" />
+        <kctl name="Speaker_Amp_Switch" value="On" />
         <kctl name="Audio_Speaker_class_Switch" value="CLASSAB" />
     </path>
     <path name="two_in_one_speaker_output" value="turnoff">
         <kctl name="Audio_Speaker_class_Switch" value="RECEIVER" />
-        <kctl name="Ext_Speaker_Amp_Switch" value="Off" />
+        <kctl name="Speaker_Amp_Switch" value="Off" />
     </path>
    <!--speaker output-->
     <path name="speaker_output" value="turnon">
-        <kctl name="Ext_Speaker_Amp_Switch" value="On" />
+        <kctl name="Speaker_Amp_Switch" value="On" />
     </path>
     <path name="speaker_output" value="turnoff">
-        <kctl name="Ext_Speaker_Amp_Switch" value="Off" />
+        <kctl name="Speaker_Amp_Switch" value="Off" />
     </path> 
     <!--headhpone_speaker output-->    
     <path name="headphoneSpeaker_output" value="turnon">
@@ -245,3 +245,4 @@
         <kctl name="Audio_Preamp2_Switch" value="IN_ADC3" />>        
     </path>            
 </mixercontrol>
+
