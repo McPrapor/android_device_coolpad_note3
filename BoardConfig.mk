@@ -200,8 +200,10 @@ TARGET_LD_SHIM_LIBS := \
     /system/lib64/libcutils.so|libmtkshim_atomic.so \
     /system/lib/liblog.so|libhtcxlog_shim.so \
     /system/lib64/liblog.so|libhtcxlog_shim.so \
-    /system/vendor/lib/hw/audio.primary.$(TARGET_BOARD_PLATFORM).so|libmtkshim_audio.so \
-    /system/vendor/lib64/hw/audio.primary.$(TARGET_BOARD_PLATFORM).so|libmtkshim_audio.so \
+    /system/vendor/lib/hw/audio.primary.mt6735.so|libmtkshim_audio.so \
+    /system/vendor/lib64/hw/audio.primary.mt6735.so|libmtkshim_audio.so \
+    /system/vendor/lib/hw/audio.primary.mt6753.so|libmtkshim_audio.so \
+    /system/vendor/lib64/hw/audio.primary.mt6753.so|libmtkshim_audio.so \    
     /system/lib/libui.so|libmtkshim_ui.so \
     /system/lib64/libui.so|libmtkshim_ui.so \
     /system/lib/libgui.so|libmtkshim_gui.so \
@@ -210,6 +212,9 @@ TARGET_LD_SHIM_LIBS := \
     /system/vendor/lib64/libfeatureio.so|libmtkshim_camera.so \
     /system/vendor/lib/libcam.camnode.so|libmtkshim_camera.so \
     /system/vendor/lib64/libcam.camnode.so|libmtkshim_camera.so
+   
+#    /system/vendor/lib/hw/audio.primary.$(TARGET_BOARD_PLATFORM).so|libmtkshim_audio.so \
+#    /system/vendor/lib64/hw/audio.primary.$(TARGET_BOARD_PLATFORM).so|libmtkshim_audio.so \
 
 # RIL
 TARGET_RIL_VARIANT := ../../../hardware/coolpad/note3/ril
