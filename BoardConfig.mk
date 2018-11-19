@@ -203,7 +203,7 @@ TARGET_LD_SHIM_LIBS := \
     /system/vendor/lib/hw/audio.primary.mt6735.so|libmtkshim_audio.so \
     /system/vendor/lib64/hw/audio.primary.mt6735.so|libmtkshim_audio.so \
     /system/vendor/lib/hw/audio.primary.mt6753.so|libmtkshim_audio.so \
-    /system/vendor/lib64/hw/audio.primary.mt6753.so|libmtkshim_audio.so \    
+    /system/vendor/lib64/hw/audio.primary.mt6753.so|libmtkshim_audio.so \
     /system/lib/libui.so|libmtkshim_ui.so \
     /system/lib64/libui.so|libmtkshim_ui.so \
     /system/lib/libgui.so|libmtkshim_gui.so \
