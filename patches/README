@@ -1,0 +1,6 @@
+
+This is patch directory
+
+cd WORKING_DIR
+sh device/coolpad/note3/patches/patch.sh
+sh device/coolpad/note3/patches/unpatch.sh
