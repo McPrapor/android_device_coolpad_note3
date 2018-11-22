@@ -6,7 +6,7 @@ dirs="sensors"
 
 for dir in $dirs ; do
 	echo "Reverting $dir patches..."
-	git apply --reverse $rootdirectory/device/coolpad/note3/patches/$dir/*.patch
+	git apply --reverse device/coolpad/note3/patches/$dir/*.patch
 	#git reset --hard
 	git clean -f -d
 	echo " "
