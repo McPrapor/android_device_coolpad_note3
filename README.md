@@ -108,6 +108,10 @@ Sync source code from repos:
 ```
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 ```
+Apply patches:
+```
+sh device/coolpad/note3/patches/patch.sh
+```
 Export some shell functions and make lunch:
 ```
 . build/envsetup.sh
@@ -120,6 +124,6 @@ mka aex -j$(nproc --all)
 
 One-line build command:
 ```
-cd /root/aex/oreo/ ; repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags ; . build/envsetup.sh ; lunch full_note3-userdebug ; mka aex -j$(nproc --all)
+cd /root/aex/oreo/ ; sh device/coolpad/note3/patches/unpatch.sh ; repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags ; sh device/coolpad/note3/patches/patch.sh ; . build/envsetup.sh ; lunch full_note3-userdebug ; mka aex -j$(nproc --all)
 ```
 
