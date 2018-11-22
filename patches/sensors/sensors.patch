@@ -1,7 +1,7 @@
-diff --git a/sensors/1.0/default/Sensors.cpp b/sensors/1.0/default/Sensors.cpp
+diff --git a/hardware/interfaces/sensors/1.0/default/Sensors.cpp b/hardware/interfaces/sensors/1.0/default/Sensors.cpp
 index 1100dd6..c41a744 100644
---- a/sensors/1.0/default/Sensors.cpp
-+++ b/sensors/1.0/default/Sensors.cpp
+--- a/hardware/interfaces/sensors/1.0/default/Sensors.cpp
++++ b/hardware/interfaces/sensors/1.0/default/Sensors.cpp
 @@ -95,7 +95,7 @@ Sensors::Sensors()
  
      // Require all the old HAL APIs to be present except for injection, which
