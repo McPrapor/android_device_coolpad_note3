@@ -5,10 +5,8 @@ rootdirectory="$PWD"
 dirs="sensors"
 
 for dir in $dirs ; do
-	cd $rootdirectory
-	cd $dir
 	echo "Applying $dir patches..."
-	git apply $rootdirectory/device/coolpad/note3/patches/$dir/*.patch
+	git apply device/coolpad/note3/patches/$dir/*.patch
 	echo " "
 done
 
