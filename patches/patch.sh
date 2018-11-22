@@ -2,11 +2,13 @@ echo $1
 rootdirectory="$PWD"
 # ---------------------------------
 
-dirs="sensors"
+dirs="hardware/interfaces "
 
 for dir in $dirs ; do
+	cd $rootdirectory
+	cd $dir
 	echo "Applying $dir patches..."
-	git apply device/coolpad/note3/patches/$dir/*.patch
+	git apply $rootdirectory/device/coolpad/note3/patches/$dir/*.patch
 	echo " "
 done
 
