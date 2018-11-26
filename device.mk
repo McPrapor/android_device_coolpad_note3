@@ -331,12 +331,18 @@ PRODUCT_PROPERTY_OVERRIDES += \
     net.tethering.noprovisioning=true
 
 # Some more apps
+#PRODUCT_PACKAGES += \
+#    Terminal \
+#    Email \
+#    ExactCalculator \
+#    Gallery2 \
+#    MusicFX
 PRODUCT_PACKAGES += \
     Terminal \
     Email \
     ExactCalculator \
-    Gallery2 \
     MusicFX
+
 
 # Vendor
 $(call inherit-product, vendor/coolpad/note3/note3-vendor.mk)
