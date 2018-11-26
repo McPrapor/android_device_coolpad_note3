@@ -2,7 +2,8 @@ echo $1
 rootdirectory="$PWD"
 # ---------------------------------
 
-dirs="hardware/interfaces "
+#dirs="hardware/interfaces "
+dirs=""
 
 for dir in $dirs ; do
 	cd $rootdirectory
