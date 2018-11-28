@@ -37,14 +37,19 @@ Front Camera | 5MP, Int. 5MP
  * RAM and ROM
  * Offline charging 
  * Adjustable brightness
+ * Wifi
+ * Bluetooth
+ * RIL(settings no imei/imeisv)
+ * Operator name
+ * GPS
+ * Audio
+ * OTG
 
 -------------
 ## Testing...
- * RIL(incoming-outgoing calls - OK, send-receive sms - OK, gprs - ?, settings no imei/imeisv)
- * Operator name
  * Hardware acceleration
- * Wifi
- * Bluetooth
+ * Audio over Bluetooth (music, calls .etc)
+ * Hotspot
 
 -------------
 ## Broken/Bugs
@@ -56,13 +61,9 @@ Front Camera | 5MP, Int. 5MP
  * Doze
  * Screen Recording
  * Camera rear/front (video)
- * OTG
- * GPS
- * Audio over Bluetooth (music, calls .etc)
- * Hotspot
  * Video_Camera
  * Flashlight (statusbar and camera)
- * Audio (no speaker output)
+
 -------------
 
 # Build ROM
@@ -126,4 +127,3 @@ One-line build command:
 ```
 cd /root/aex/oreo/ ; sh device/coolpad/note3/patches/unpatch.sh ; repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags ; sh device/coolpad/note3/patches/patch.sh ; . build/envsetup.sh ; lunch full_note3-userdebug ; mka aex -j$(nproc --all)
 ```
-
