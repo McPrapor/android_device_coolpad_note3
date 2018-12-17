@@ -32,8 +32,8 @@
         timeout expires.  May be less than the minimum allowed brightness setting
         that can be set by the user. -->
     <integer name="config_screenBrightnessDim">20</integer>
-<!-- disable auto brightness temporary -->
-    <bool name="config_automatic_brightness_available">false</bool>
+<!-- disable auto brightness temporary
+    <bool name="config_automatic_brightness_available">false</bool> -->
 	
     <!-- automatic (adaptive) brightness values start -->
     <integer-array name="config_autoBrightnessLevels">
