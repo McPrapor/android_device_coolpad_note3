@@ -36,7 +36,6 @@ Front Camera | 5MP, Int. 5MP
  * MTP and Mass Storage modes
  * RAM and ROM
  * Offline charging 
- * Adjustable brightness
  * Wifi
  * Bluetooth
  * RIL(settings no imei/imeisv)
@@ -54,6 +53,7 @@ Front Camera | 5MP, Int. 5MP
 -------------
 ## Broken/Bugs
 
+ * Adjustable brightness
  * Auto brightness
  * Rotation
  * Camera rear/front (photographs only)
@@ -63,6 +63,7 @@ Front Camera | 5MP, Int. 5MP
  * Camera rear/front (video)
  * Video_Camera
  * Flashlight (statusbar and camera)
+ * Battery calibration table
 
 -------------
 
