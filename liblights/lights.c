@@ -225,7 +225,7 @@ set_speaker_light_locked(struct light_device_t* dev,
     }
     else {
         if (amber >= 128) {
-            write_int(amber_LED_FILE, 255);
+            write_int(AMBER_LED_FILE, 255);
         }
         if (green >= 128) {
             write_int(GREEN_LED_FILE, 255);
