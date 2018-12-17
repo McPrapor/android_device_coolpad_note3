@@ -42,16 +42,16 @@ static struct light_state_t g_battery;
 
 /* Red LED */
 char const*const RED_LED_FILE
-        = "/sys/class/leds/red/brightness";
+        = "/sys/class/leds/amber/brightness";
 
 char const*const RED_TRIGGER_FILE
-        = "/sys/class/leds/red/trigger";
+        = "/sys/class/leds/amber/trigger";
 
 char const*const RED_DELAY_ON_FILE
-        = "/sys/class/leds/red/delay_on";
+        = "/sys/class/leds/amber/delay_on";
 
 char const*const RED_DELAY_OFF_FILE
-        = "/sys/class/leds/red/delay_off";
+        = "/sys/class/leds/amber/delay_off";
 
 /* Green LED */
 char const*const GREEN_LED_FILE
