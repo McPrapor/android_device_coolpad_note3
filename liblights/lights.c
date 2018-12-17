@@ -40,17 +40,17 @@ static struct light_state_t g_attention;
 static struct light_state_t g_notification;
 static struct light_state_t g_battery;
 
-/* Red LED */
-char const*const RED_LED_FILE
+/* Amber LED */
+char const*const AMBER_LED_FILE
         = "/sys/class/leds/amber/brightness";
 
-char const*const RED_TRIGGER_FILE
+char const*const AMBER_TRIGGER_FILE
         = "/sys/class/leds/amber/trigger";
 
-char const*const RED_DELAY_ON_FILE
+char const*const AMBER_DELAY_ON_FILE
         = "/sys/class/leds/amber/delay_on";
 
-char const*const RED_DELAY_OFF_FILE
+char const*const AMBER_DELAY_OFF_FILE
         = "/sys/class/leds/amber/delay_off";
 
 /* Green LED */
@@ -175,7 +175,7 @@ static int
 set_speaker_light_locked(struct light_device_t* dev,
         struct light_state_t const* state)
 {
-    int red, green, blink;
+    int amber, green, blink;
     int onMS, offMS;
     unsigned int colorRGB;
 
@@ -200,22 +200,22 @@ set_speaker_light_locked(struct light_device_t* dev,
     ALOGV("set_speaker_light_locked mode %d, colorRGB=%08X, onMS=%d, offMS=%d\n",
             state->flashMode, colorRGB, onMS, offMS);
 
-    red = (colorRGB >> 16) & 0xFF;
+    amber = (colorRGB >> 16) & 0xFF;
     green = (colorRGB >> 8) & 0xFF;
     blink = onMS > 0 && offMS > 0;
 
-    write_int(RED_LED_FILE, 0);
-    write_str(RED_TRIGGER_FILE, "none");
+    write_int(AMBER_LED_FILE, 0);
+    write_str(AMBER_TRIGGER_FILE, "none");
     write_int(GREEN_LED_FILE, 0);
     write_str(GREEN_TRIGGER_FILE, "none");
 
     if (blink) {
-        if (red >= 128 && red >= green) {
-            write_str(RED_TRIGGER_FILE, "timer");
-            write_int(RED_DELAY_ON_FILE, onMS);
-            write_int(RED_DELAY_OFF_FILE, offMS);
+        if (amber >= 128 && amber >= green) {
+            write_str(AMBER_TRIGGER_FILE, "timer");
+            write_int(AMBER_DELAY_ON_FILE, onMS);
+            write_int(AMBER_DELAY_OFF_FILE, offMS);
         }
-        // disable mixing green with red
+        // disable mixing green with amber
         // leds aren't blinking in sync
         else if (green >= 128) { 
             write_str(GREEN_TRIGGER_FILE, "timer");
@@ -224,8 +224,8 @@ set_speaker_light_locked(struct light_device_t* dev,
         }
     }
     else {
-        if (red >= 128) {
-            write_int(RED_LED_FILE, 255);
+        if (amber >= 128) {
+            write_int(amber_LED_FILE, 255);
         }
         if (green >= 128) {
             write_int(GREEN_LED_FILE, 255);
