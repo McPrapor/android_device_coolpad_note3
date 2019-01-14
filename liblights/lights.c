@@ -184,11 +184,10 @@ set_speaker_light_locked(struct light_device_t* dev,
 
     colorRGB = state->color;
 
-    ALOGE("set_speaker_light_locked mode %d, colorRGB=%08X, onMS=%d, offMS=%d\n",
-            state->flashMode, colorRGB, onMS, offMS);
-
     amber = (colorRGB >> 16) & 0xFF;
     green = (colorRGB >> 8) & 0xFF;
+    ALOGE("set_speaker_light_locked mode %d, colorRGB=%08X, amber=%d, green=%d, onMS=%d, offMS=%d\n", 
+            state->flashMode, colorRGB, amber, green, onMS, offMS);
     blink = onMS > 0 && offMS > 0;
 
     write_int(AMBER_LED_FILE, 0);
