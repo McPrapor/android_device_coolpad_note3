@@ -77,14 +77,14 @@ char const*const LCD_FILE
 void init_globals(void)
 {
     // init the mutex
-    ALOGV("DBG liblight init_globals");
+    ALOGE("DBG liblight init_globals");
     pthread_mutex_init(&g_lock, NULL);
 }
 
 static int
 write_int(char const* path, int value)
 {
-    ALOGV("DBG liblight write_int");
+    ALOGE("DBG liblight write_int");
     int fd;
     static int already_warned = 0;
 
@@ -109,7 +109,7 @@ write_str(char const* path, char *str)
 {
     int fd;
     static int already_warned = 0;
-    ALOGV("DBG liblight write_str");
+    ALOGE("DBG liblight write_str");
     fd = open(path, O_RDWR);
     if (fd >= 0) {
         char buffer[20];
@@ -129,7 +129,7 @@ write_str(char const* path, char *str)
 static int
 is_lit(struct light_state_t const* state)
 {
-            ALOGV("DBG liblight is_lit");
+            ALOGE("DBG liblight is_lit");
     return state->color & 0x00ffffff;
 }
 
@@ -137,7 +137,7 @@ static int
 rgb_to_brightness(struct light_state_t const* state)
 {
     int color = state->color & 0x00ffffff;
-    ALOGV("DBG liblight rgb_to_brightness");        
+    ALOGE("DBG liblight rgb_to_brightness");        
     return ((77*((color>>16)&0x00ff))
             + (150*((color>>8)&0x00ff)) + (29*(color&0x00ff))) >> 8;
 }
@@ -146,7 +146,7 @@ static int
 set_light_backlight(struct light_device_t* dev,
         struct light_state_t const* state)
 {
-    ALOGV("DBG liblight set_light_backlight");       
+    ALOGE("DBG liblight set_light_backlight");       
     if (!dev) {
         return -1;
     }
@@ -165,7 +165,7 @@ set_speaker_light_locked(struct light_device_t* dev,
     int amber, green, blink;
     int onMS, offMS;
     unsigned int colorRGB;
-    ALOGV("DBG liblight set_speaker_light_locked");
+    ALOGE("DBG liblight set_speaker_light_locked");
     if (!dev) {
         return -1;
     }
@@ -184,7 +184,7 @@ set_speaker_light_locked(struct light_device_t* dev,
 
     colorRGB = state->color;
 
-    ALOGV("set_speaker_light_locked mode %d, colorRGB=%08X, onMS=%d, offMS=%d\n",
+    ALOGE("set_speaker_light_locked mode %d, colorRGB=%08X, onMS=%d, offMS=%d\n",
             state->flashMode, colorRGB, onMS, offMS);
 
     amber = (colorRGB >> 16) & 0xFF;
@@ -225,7 +225,7 @@ set_speaker_light_locked(struct light_device_t* dev,
 static void
 handle_speaker_light_locked(struct light_device_t* dev)
 {
-            ALOGV("DBG liblight handle_speaker_light_locked");
+            ALOGE("DBG liblight handle_speaker_light_locked");
     if (is_lit(&g_attention)) {
         set_speaker_light_locked(dev, &g_attention);
     } else if (is_lit(&g_notification)) {
@@ -239,7 +239,7 @@ static int
 set_light_battery(struct light_device_t* dev,
         struct light_state_t const* state)
 {
-            ALOGV("DBG liblight set_light_battery");
+            ALOGE("DBG liblight set_light_battery");
     pthread_mutex_lock(&g_lock);
     g_battery = *state;
     handle_speaker_light_locked(dev);
@@ -251,7 +251,7 @@ static int
 set_light_notifications(struct light_device_t* dev,
         struct light_state_t const* state)
 {
-            ALOGV("DBG liblight set_light_notification");
+            ALOGE("DBG liblight set_light_notification");
     pthread_mutex_lock(&g_lock);
     g_notification = *state;
     handle_speaker_light_locked(dev);
@@ -263,7 +263,7 @@ static int
 set_light_attention(struct light_device_t* dev,
         struct light_state_t const* state)
 {
-            ALOGV("DBG liblight set_light_attention");
+            ALOGE("DBG liblight set_light_attention");
     pthread_mutex_lock(&g_lock);
     g_attention = *state;
     handle_speaker_light_locked(dev);
@@ -275,7 +275,7 @@ set_light_attention(struct light_device_t* dev,
 static int
 close_lights(struct light_device_t *dev)
 {
-            ALOGV("DBG liblight close_lights");
+            ALOGE("DBG liblight close_lights");
     if (dev) {
         free(dev);
     }
@@ -293,7 +293,7 @@ close_lights(struct light_device_t *dev)
 static int open_lights(const struct hw_module_t* module, char const* name,
         struct hw_device_t** device)
 {
-            ALOGV("DBG liblight open_lights");
+            ALOGE("DBG liblight open_lights");
     int (*set_light)(struct light_device_t* dev,
             struct light_state_t const* state);
 
