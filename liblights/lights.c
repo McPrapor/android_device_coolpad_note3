@@ -109,7 +109,7 @@ write_str(char const* path, char *str)
 {
     int fd;
     static int already_warned = 0;
-    ALOGE("DBG liblight write_str $s > $s", $str, $path);
+    ALOGE("DBG liblight write_str %s > %s \n", str, path);
     fd = open(path, O_RDWR);
     if (fd >= 0) {
         char buffer[20];
@@ -196,26 +196,28 @@ set_speaker_light_locked(struct light_device_t* dev,
     write_str(GREEN_TRIGGER_FILE, "none");
 
     if (blink) {
-        if (amber >= 128 && amber >= green) {
+//        if (amber >= 128 && amber >= green) {
             write_str(AMBER_TRIGGER_FILE, "timer");
             write_int(AMBER_DELAY_ON_FILE, onMS);
             write_int(AMBER_DELAY_OFF_FILE, offMS);
-        }
+//        }
         // disable mixing green with amber
         // leds aren't blinking in sync
-        else if (green >= 128) { 
+//        else if (green >= 128) { 
             write_str(GREEN_TRIGGER_FILE, "timer");
             write_int(GREEN_DELAY_ON_FILE, onMS);
             write_int(GREEN_DELAY_OFF_FILE, offMS);
-        }
+//        }
     }
     else {
-        if (amber >= 128) {
-            write_int(AMBER_LED_FILE, 255);
-        }
-        if (green >= 128) {
-            write_int(GREEN_LED_FILE, 255);
-        }
+//        if (amber >= 128) {
+//            write_int(AMBER_LED_FILE, 255);
+//        }
+//        if (green >= 128) {
+//            write_int(GREEN_LED_FILE, 255);
+//        }
+        write_int(AMBER_LED_FILE, amber);
+        write_int(GREEN_LED_FILE, green);
     }
 
     return 0;
