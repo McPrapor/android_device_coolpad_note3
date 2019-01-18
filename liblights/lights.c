@@ -84,7 +84,7 @@ void init_globals(void)
 static int
 write_int(char const* path, int value)
 {
-    ALOGE("DBG liblight write_int");
+    ALOGE("DBG liblight write_int %d > %s \n", value, path);
     int fd;
     static int already_warned = 0;
 
@@ -109,7 +109,7 @@ write_str(char const* path, char *str)
 {
     int fd;
     static int already_warned = 0;
-    ALOGE("DBG liblight write_str");
+    ALOGE("DBG liblight write_str $s > $s", $str, $path);
     fd = open(path, O_RDWR);
     if (fd >= 0) {
         char buffer[20];
@@ -186,7 +186,7 @@ set_speaker_light_locked(struct light_device_t* dev,
 
     amber = (colorRGB >> 16) & 0xFF;
     green = (colorRGB >> 8) & 0xFF;
-    ALOGE("set_speaker_light_locked mode %d, colorRGB=%08X, amber=%d, green=%d, onMS=%d, offMS=%d\n", 
+    ALOGE("DBG liblight set_speaker_light_locked mode %d, colorRGB=%08X, amber=%d, green=%d, onMS=%d, offMS=%d\n", 
             state->flashMode, colorRGB, amber, green, onMS, offMS);
     blink = onMS > 0 && offMS > 0;
 
