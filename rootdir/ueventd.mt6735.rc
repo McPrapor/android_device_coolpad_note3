@@ -85,16 +85,6 @@
 /sys/class/misc/m_gyro_misc	gyrobatch 	0660   system	    system
 /sys/class/misc/m_gyro_misc	gyroflush 	0660   system	    system
 
-# Leds
-/sys/class/leds/green/brightness 0664   system	    system
-/sys/class/leds/amber/brightness 0664   system	    system
-/sys/class/leds/green/delay_on 0664   system	    system
-/sys/class/leds/amber/delay_on 0664   system	    system
-/sys/class/leds/green/delay_off 0664   system	    system
-/sys/class/leds/amber/delay_off 0664   system	    system
-/sys/class/leds/green/timer 0664   system	    system
-/sys/class/leds/amber/timer 0664   system	    system
-
 # Mali
 /dev/mali0                0666   root       root
 
