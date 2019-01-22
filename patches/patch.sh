@@ -2,7 +2,7 @@ echo $1
 rootdirectory="$PWD"
 # ---------------------------------
 
-dirs="hardware/interfaces system/sepolicy "
+dirs="hardware/interfaces "
 #dirs=""
 
 for dir in $dirs ; do
