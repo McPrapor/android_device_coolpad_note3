@@ -1,0 +1,11 @@
+--- a/Android.mk  2019-01-17 20:11:49.862375444 +0000
++++ b/Android.mk 2019-01-22 10:10:34.866640567 +0000
+@@ -833,7 +833,7 @@
+ $(LOCAL_BUILT_MODULE): PRIVATE_SEPOLICY := $(built_sepolicy)
+ $(LOCAL_BUILT_MODULE): $(plat_property_contexts.tmp) $(built_sepolicy) $(HOST_OUT_EXECUTABLES)/checkfc
+        @mkdir -p $(dir $@)
+-       $(hide) sed -e 's/#.*$$//' -e '/^$$/d' $< | sort -u -o $@
++       $(hide) sed -e 's/#.*$$//' -e '/^$$/d' $< | sort -r -u -o $@
+        $(hide) $(HOST_OUT_EXECUTABLES)/checkfc -p $(PRIVATE_SEPOLICY) $@
+ 
+ built_plat_pc := $(LOCAL_BUILT_MODULE)
