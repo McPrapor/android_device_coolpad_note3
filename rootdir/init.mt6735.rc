@@ -88,6 +88,25 @@ on boot
     chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
     chmod 0660 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
 
+    # LEDS
+    chown system:root /sys/class/leds/amber/brightness
+    chmod 0644 /sys/class/leds/amber/brightness    
+    chown system:root /sys/class/leds/amber/delay_on
+    chmod 0644  /sys/class/leds/amber/delay_on    
+    chown system:root /sys/class/leds/amber/delay_off
+    chmod 0644  /sys/class/leds/amber/delay_off    
+    chown system:root /sys/class/leds/amber/trigger
+    chmod 0644  /sys/class/leds/amber/trigger    
+    
+    chown system:root /sys/class/leds/green/brightness
+    chmod 0644 /sys/class/leds/green/brightness    
+    chown system:root /sys/class/leds/green/delay_on
+    chmod 0644  /sys/class/leds/amber/delay_on    
+    chown system:root /sys/class/leds/green/delay_off
+    chmod 0644  /sys/class/leds/amber/delay_off    
+    chown system:root /sys/class/leds/green/trigger
+    chmod 0644  /sys/class/leds/amber/trigger        
+
     # Smartwake
     chown system system /sys/devices/virtual/touchscreen/touchscreen_dev/smartwake
     chmod 0660 /sys/devices/virtual/touchscreen/touchscreen_dev/smartwake
