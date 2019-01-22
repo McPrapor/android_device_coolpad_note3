@@ -94,6 +94,24 @@ on boot
     chown system system /sys/devices/virtual/touchscreen/touchscreen_dev/gesture_wakeup
     chmod 0660 /sys/devices/virtual/touchscreen/touchscreen_dev/gesture_wakeup
 
+    # LEDS
+    chown system root /sys/class/leds/amber/brightness
+    chmod 0644 /sys/class/leds/amber/brightness    
+    chown system root /sys/class/leds/amber/delay_on
+    chmod 0644  /sys/class/leds/amber/delay_on    
+    chown system root /sys/class/leds/amber/delay_off
+    chmod 0644  /sys/class/leds/amber/delay_off    
+    chown system root /sys/class/leds/amber/trigger
+    chmod 0644  /sys/class/leds/amber/trigger
+    chown system root /sys/class/leds/green/brightness
+    chmod 0644 /sys/class/leds/green/brightness    
+    chown system root /sys/class/leds/green/delay_on
+    chmod 0644  /sys/class/leds/amber/delay_on    
+    chown system root /sys/class/leds/green/delay_off
+    chmod 0644  /sys/class/leds/amber/delay_off    
+    chown system root /sys/class/leds/green/trigger
+    chmod 0644  /sys/class/leds/amber/trigger 
+
 on property:sys.boot_completed=1
     # end boot time fs tune
     write /sys/block/mmcblk0/queue/read_ahead_kb 128
