@@ -1,4 +1,5 @@
 extern "C" {
+    int _Z9SmoothCFAjjjRKN11NSIspTuning15ISP_NVRAM_CFA_TES2_RS0_();
     int _ZN12DpBlitStream10invalidateEP7timeval();
     int _ZN12DpBlitStream10invalidateEv() {
         return _ZN12DpBlitStream10invalidateEP7timeval();
