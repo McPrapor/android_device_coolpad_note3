@@ -211,8 +211,10 @@ TARGET_LD_SHIM_LIBS := \
     /system/vendor/lib/libfeatureio.so|libmtkshim_camera.so \
     /system/vendor/lib64/libfeatureio.so|libmtkshim_camera.so \
     /system/vendor/lib/libcam.camnode.so|libmtkshim_camera.so \
-    /system/vendor/lib64/libcam.camnode.so|libmtkshim_camera.so
-   
+    /system/vendor/lib64/libcam.camnode.so|libmtkshim_camera.so \
+    /system/vendor/lib/libcam.hal3a.v3.so|libmtkshim_camera.so \
+    /system/vendor/lib64/libcam.hal3a.v3.so|libmtkshim_camera.so
+
 #    /system/vendor/lib/hw/audio.primary.$(TARGET_BOARD_PLATFORM).so|libmtkshim_audio.so \
 #    /system/vendor/lib64/hw/audio.primary.$(TARGET_BOARD_PLATFORM).so|libmtkshim_audio.so \
 
