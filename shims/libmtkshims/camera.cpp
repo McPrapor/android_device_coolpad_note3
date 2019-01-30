@@ -1,4 +1,7 @@
 extern "C" {
+    int ion_alloc_camera_pool() {
+        return 0;   
+    }
     int _ZN5NSCam23IGraphicImageBufferHeap6createEPKcPN7android13GraphicBufferEii(){
         return 0;
     }
