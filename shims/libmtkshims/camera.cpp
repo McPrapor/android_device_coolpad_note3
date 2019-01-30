@@ -1,4 +1,7 @@
 extern "C" {
+    int _Z9SmoothCCMRK10AWB_GAIN_TiiR26ISP_NVRAM_MULTI_CCM_STRUCTRN11NSIspTuning15ISP_NVRAM_CCM_TER16ISP_CCM_WEIGHT_Tii(){
+        return 0;
+    }
     int _Z9SmoothCFAjjjRKN11NSIspTuning15ISP_NVRAM_CFA_TES2_RS0_(){
            return 0;
     }
