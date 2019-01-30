@@ -2,6 +2,9 @@ extern "C" {
     int _Z9SmoothCFAjjjRKN11NSIspTuning15ISP_NVRAM_CFA_TES2_RS0_(){
            return 0;
     }
+    int _Z8SmoothEEjjjRKN11NSIspTuning14ISP_NVRAM_EE_TES2_RS0_(){
+            return 0;   
+    }
     int _ZN12DpBlitStream10invalidateEP7timeval();
     int _ZN12DpBlitStream10invalidateEv() {
         return _ZN12DpBlitStream10invalidateEP7timeval();
