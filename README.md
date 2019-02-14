@@ -43,27 +43,25 @@ Front Camera | 5MP, Int. 5MP
  * GPS
  * Audio
  * OTG
+ * Adjustable brightness
+ * Hardware acceleration
+ * Rotation
 
 -------------
 ## Testing...
- * Hardware acceleration
  * Audio over Bluetooth (music, calls .etc)
- * Hotspot
+ * All sensors
 
 -------------
 ## Broken/Bugs
-
- * Adjustable brightness
+ * Hotspot
  * Auto brightness
- * Rotation
  * Camera rear/front (photographs only)
- * All sensors
  * Doze
  * Screen Recording
  * Camera rear/front (video)
  * Video_Camera
  * Flashlight (statusbar and camera)
- * Battery calibration table
 
 -------------
 
