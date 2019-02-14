@@ -62,7 +62,8 @@ Front Camera | 5MP, Int. 5MP
  * Camera rear/front (video)
  * Video_Camera
  * Flashlight (statusbar and camera)
-
+ * SElinux
+ 
 -------------
 
 # Build ROM
