@@ -7,16 +7,16 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, vendor/aosp/common.mk)
 
 # Inherit from hardware-specific part of the product configuration
-$(call inherit-product, device/coolpad/note3/device.mk)
+$(call inherit-product, device/htc/htc_v36bml_dugl/device.mk)
 
 # Release name
-PRODUCT_RELEASE_NAME := Note3
+PRODUCT_RELEASE_NAME := Desire 628 dual sim
 
-PRODUCT_DEVICE := note3
-PRODUCT_NAME := full_note3
-PRODUCT_BRAND := Coolpad
-PRODUCT_MODEL := Note3
-PRODUCT_MANUFACTURER := Coolpad
+PRODUCT_DEVICE := htc_v36bml_dugl
+PRODUCT_NAME := full_htc_v36bml_dugl
+PRODUCT_BRAND := HTC
+PRODUCT_MODEL := Desire 628 dual sim
+PRODUCT_MANUFACTURER := HTC
 PRODUCT_RESTRICT_VENDOR_FILES := false
 
 # Boot animation
