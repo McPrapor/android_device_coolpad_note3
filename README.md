@@ -94,10 +94,10 @@ cat <<EOF > .repo/local_manifests/roomservice.xml
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
         <remote fetch="git://github.com/" name="gh" />
-        <project path="kernel/coolpad/note3" name="McPrapor/kernel_misu" remote="github" revision="master"/>
-        <project path="device/coolpad/note3" name="McPrapor/android_device_htc_v36bml" remote="github" revision="o-8.1.0"/>
-        <project path="vendor/coolpad/note3" name="McPrapor/android_vendor_htc_v36bml" remote="github" revision="o-8.1.0"/>
-        <project path="hardware/coolpad/note3" name="McPrapor/android_hardware_htc_v36bml" remote="github" revision="o-8.1.0"/>
+        <project path="kernel/htc/htc_v36bml_dugl" name="McPrapor/kernel_misu" remote="github" revision="master"/>
+        <project path="device/htc/htc_v36bml_dugl" name="McPrapor/android_device_htc_v36bml" remote="github" revision="o-8.1.0"/>
+        <project path="vendor/htc/htc_v36bml_dugl" name="McPrapor/android_vendor_htc_v36bml" remote="github" revision="o-8.1.0"/>
+        <project path="hardware/htc/htc_v36bml_dugl" name="McPrapor/android_hardware_htc_v36bml" remote="github" revision="o-8.1.0"/>
 </manifest>
 EOF
 ``` 
@@ -112,12 +112,12 @@ repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 ```
 Apply patches:
 ```
-sh device/coolpad/note3/patches/patch.sh
+sh device/htc/htc_v36bml_dugl/patches/patch.sh
 ```
 Export some shell functions and make lunch:
 ```
 . build/envsetup.sh
-lunch full_note3-userdebug
+lunch full_htc_v36bml_dugl-userdebug
 ```
 Run build:
 ```
@@ -126,5 +126,5 @@ mka aex -j$(nproc --all)
 
 One-line build command:
 ```
-cd /root/aex/oreo/ ; sh device/coolpad/note3/patches/unpatch.sh ; repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags ; sh device/coolpad/note3/patches/patch.sh ; . build/envsetup.sh ; lunch full_note3-userdebug ; mka aex -j$(nproc --all)
+cd /root/aex/oreo/ ; sh device/htc/htc_v36bml_dugl/patches/unpatch.sh ; repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags ; sh device/htc/htc_v36bml_dugl/patches/patch.sh ; . build/envsetup.sh ; lunch full_htc/htc_v36bml_dugl-userdebug ; mka aex -j$(nproc --all)
 ```
