@@ -330,6 +330,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.android.dataroaming=false \
     net.tethering.noprovisioning=true
 
+# HTC build props
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.com.google.clientidbase=android-htc \
+    ro.build.fingerprint=htc/v36bml_dugl_00401/htc_v36bml_dugl:5.1/LMY47D/822405.2:user/release-keys \
+    ro.build.buildline=V36BMLDUGL_HTC_WWE_L51_CRC_DesireSense70_Stable
+
 # Some more apps
 #PRODUCT_PACKAGES += \
 #    Terminal \
