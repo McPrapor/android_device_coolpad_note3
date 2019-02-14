@@ -1,4 +1,5 @@
 extern "C" {
+/*    
     int ion_alloc_camera_pool() {
         return 0;   
     }
@@ -17,6 +18,11 @@ extern "C" {
     int _Z9SmoothANRjjjRKN11NSIspTuning15ISP_NVRAM_ANR_TES2_RS0_(){
             return 0;
     }
+*/
+    int _ZN9IHalFlash11getInstanceEi() {
+        return 0;   
+    }
+    
     int _ZN12DpBlitStream10invalidateEP7timeval();
     int _ZN12DpBlitStream10invalidateEv() {
         return _ZN12DpBlitStream10invalidateEP7timeval();
