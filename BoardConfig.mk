@@ -1,5 +1,5 @@
 # mt6753 platform boardconfig
-LOCAL_PATH := device/coolpad/note3
+LOCAL_PATH := device/htc/htc_v36bml_dugl
 
 # MTK Hardware
 BOARD_HAS_MTK_HARDWARE := true
@@ -16,7 +16,7 @@ VSYNC_EVENT_PHASE_OFFSET_NS := -8000000
 SF_VSYNC_EVENT_PHASE_OFFSET_NS := -8000000
 PRESENT_TIME_OFFSET_FROM_VSYNC_NS := 0
 
-BOARD_EGL_CFG := device/coolpad/note3/configs/egl.cfg
+BOARD_EGL_CFG := device/htc/htc_v36bml_dugl/configs/egl.cfg
 
 # Vold
 TARGET_KERNEL_HAVE_EXFAT := true
@@ -122,7 +122,7 @@ BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x40078000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --base 0x40078000 --pagesize 2048 --kernel_offset 0x00008000 --ramdisk_offset 0x03f88000 --second_offset 0x00e88000 --tags_offset 0x0df88000 --board 1479347649
-TARGET_KERNEL_SOURCE := kernel/coolpad/note3
+TARGET_KERNEL_SOURCE := kernel/htc/htc_v36bml_dugl
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_CONFIG := abyrvalg_defconfig
@@ -208,23 +208,25 @@ TARGET_LD_SHIM_LIBS := \
     /system/lib64/libui.so|libmtkshim_ui.so \
     /system/lib/libgui.so|libmtkshim_gui.so \
     /system/lib64/libgui.so|libmtkshim_gui.so \
-    /system/vendor/lib/libfeatureio.so|libmtkshim_camera.so \
-    /system/vendor/lib64/libfeatureio.so|libmtkshim_camera.so \
-    /system/vendor/lib/libcam.camnode.so|libmtkshim_camera.so \
-    /system/vendor/lib64/libcam.camnode.so|libmtkshim_camera.so \
-    /system/vendor/lib/libcam.hal3a.v3.so|libmtkshim_camera.so \
-    /system/vendor/lib64/libcam.hal3a.v3.so|libmtkshim_camera.so \
-    /system/vendor/lib/libmtkcam_imgbuf.so|libmtkshim_camera.so \
-    /system/vendor/lib64/libmtkcam_imgbuf.so|libmtkshim_camera.so
+    /system/vendor/lib/hw/camera.mt6753.so|libmtkshim_camera.so \
+    /system/vendor/lib64/hw/camera.mt6753.so|libmtkshim_camera.so     
+#    /system/vendor/lib/libfeatureio.so|libmtkshim_camera.so \
+#    /system/vendor/lib64/libfeatureio.so|libmtkshim_camera.so \
+#    /system/vendor/lib/libcam.camnode.so|libmtkshim_camera.so \
+#    /system/vendor/lib64/libcam.camnode.so|libmtkshim_camera.so \
+#    /system/vendor/lib/libcam.hal3a.v3.so|libmtkshim_camera.so \
+#    /system/vendor/lib64/libcam.hal3a.v3.so|libmtkshim_camera.so \
+#    /system/vendor/lib/libmtkcam_imgbuf.so|libmtkshim_camera.so \
+#    /system/vendor/lib64/libmtkcam_imgbuf.so|libmtkshim_camera.so
 
 #    /system/vendor/lib/hw/audio.primary.$(TARGET_BOARD_PLATFORM).so|libmtkshim_audio.so \
 #    /system/vendor/lib64/hw/audio.primary.$(TARGET_BOARD_PLATFORM).so|libmtkshim_audio.so \
 
 # RIL
-TARGET_RIL_VARIANT := ../../../hardware/coolpad/note3/ril
+TARGET_RIL_VARIANT := ../../../hardware/htc/htc_v36bml_dugl/ril
 TARGET_RILUTILS_VARIANT := ../../../hardware/ril/librilutils
 TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
-BOARD_RIL_CLASS := ../../../device/coolpad/note3/ril
+BOARD_RIL_CLASS := ../../../device/htc/htc_v36bml_dugl/ril
 BOARD_CONNECTIVITY_MODULE := conn_soc
 BOARD_PROVIDES_LIBRIL := true
 BOARD_PROVIDES_RILD := true
