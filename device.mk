@@ -1,4 +1,4 @@
-LOCAL_PATH := device/coolpad/note3
+LOCAL_PATH := device/htc/htc_v36bml_dugl
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
@@ -29,10 +29,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fingerprint.default
 
-## MDDB
-#PRODUCT_COPY_FILES += \
-#    $(LOCAL_PATH)/configs/mddb/BPLGUInfoCustomAppSrcP_MT6735_S00_0_1524V28P45_0504_0422_1_1_lwg_n:system/etc/mddb/BPLGUInfoCustomAppSrcP_MT6735_S00_0_1524V28P45_0504_0422_1_1_lwg_n \
-#    $(LOCAL_PATH)/configs//mddb/DbgInfo_LR9.W1444.MD.LWTG.MP_MT6735_V36BML_0_1524V28P45_0504_0422_1_2016_04_22_15_26_1_lwg_n:system/etc/mddb/DbgInfo_LR9.W1444.MD.LWTG.MP_MT6735_V36BML_0_1524V28P45_0504_0422_1_2016_04_22_15_26_1_lwg_n
+# MDDB
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/mddb/BPLGUInfoCustomAppSrcP_MT6735_S00_0_1524V28P45_0504_0422_1_1_lwg_n:system/vendor/etc/mddb/BPLGUInfoCustomAppSrcP_MT6735_S00_0_1524V28P45_0504_0422_1_1_lwg_n \
+    $(LOCAL_PATH)/configs/mddb/DbgInfo_LR9.W1444.MD.LWTG.MP_MT6735_V36BML_0_1524V28P45_0504_0422_1_2016_04_22_15_26_1_lwg_n:system/vendor/etc/mddb/DbgInfo_LR9.W1444.MD.LWTG.MP_MT6735_V36BML_0_1524V28P45_0504_0422_1_2016_04_22_15_26_1_lwg_n
 
 # Audio
 PRODUCT_COPY_FILES += \
@@ -59,12 +59,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/etc/twrp.fstab:recovery/root/etc/twrp.fstab
 
-# Fingerprint
-PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service
+## Fingerprint
+#PRODUCT_PACKAGES += \
+#    android.hardware.biometrics.fingerprint@2.1-service
 
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.fingerprint.xml:system/etc/permissions/android.hardware.fingerprint.xml
+#PRODUCT_COPY_FILES += \
+#    frameworks/native/data/etc/android.hardware.fingerprint.xml:system/etc/permissions/android.hardware.fingerprint.xml
 
 # Seccomp policy
 PRODUCT_COPY_FILES += \
@@ -150,7 +150,7 @@ PRODUCT_PACKAGES += \
     libcurl
 
 PRODUCT_COPY_FILES += \
-    device/coolpad/note3/configs/agps_profiles_conf2.xml:system/etc/agps_profiles_conf2.xml
+    device/htc/htc_v36bml_dugl/configs/agps_profiles_conf2.xml:system/etc/agps_profiles_conf2.xml
 
 # Include explicitly to work around Facelock issues
 PRODUCT_PACKAGES += \
@@ -227,9 +227,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     
 # Configs
 PRODUCT_COPY_FILES += \
-    device/coolpad/note3/configs/apns-conf.xml:system/etc/apns-conf.xml \
-    device/coolpad/note3/configs/ecc_list.xml:system/etc/ecc_list.xml \
-    device/coolpad/note3/configs/spn-conf.xml:system/etc/spn-conf.xml
+    device/htc/htc_v36bml_dugl/configs/apns-conf.xml:system/etc/apns-conf.xml \
+    device/htc/htc_v36bml_dugl/configs/ecc_list.xml:system/etc/ecc_list.xml \
+    device/htc/htc_v36bml_dugl/configs/spn-conf.xml:system/etc/spn-conf.xml
 
 # Messaging
 PRODUCT_PACKAGES += \
@@ -246,9 +246,9 @@ PRODUCT_PACKAGES += \
     wpa_supplicant
 
 PRODUCT_COPY_FILES += \
-    device/coolpad/note3/configs/wifi/wpa_supplicant.conf:system/vendor/etc/wifi/wpa_supplicant.conf \
-    device/coolpad/note3/configs/wifi/wpa_supplicant_overlay.conf:system/vendor/etc/wifi/wpa_supplicant_overlay.conf \
-    device/coolpad/note3/configs/wifi/p2p_supplicant_overlay.conf:system/vendor/etc/wifi/p2p_supplicant_overlay.conf
+    device/htc/htc_v36bml_dugl/configs/wifi/wpa_supplicant.conf:system/vendor/etc/wifi/wpa_supplicant.conf \
+    device/htc/htc_v36bml_dugl/configs/wifi/wpa_supplicant_overlay.conf:system/vendor/etc/wifi/wpa_supplicant_overlay.conf \
+    device/htc/htc_v36bml_dugl/configs/wifi/p2p_supplicant_overlay.conf:system/vendor/etc/wifi/p2p_supplicant_overlay.conf
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.boot.wificountrycode=00    
@@ -345,5 +345,5 @@ PRODUCT_PACKAGES += \
 
 
 # Vendor
-$(call inherit-product, vendor/coolpad/note3/note3-vendor.mk)
-$(call inherit-product, vendor/coolpad/note3/note3-firmware-blobs.mk)
+$(call inherit-product, vendor/htc/htc_v36bml_dugl/htc_v36bml_dugl-vendor.mk)
+$(call inherit-product, vendor/htc/htc_v36bml_dugl/htc_v36bml_dugl-firmware-blobs.mk)
