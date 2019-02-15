@@ -336,7 +336,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #    ro.build.buildline=V36BMLDUGL_HTC_WWE_L51_CRC_DesireSense70_Stable
     
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    BUILD_FINGERPRINT := htc/v36bml_dugl_00401/htc_v36bml_dugl:5.1/LMY47D/822405.2:user/release-keys \
+    BUILD_FINGERPRINT=htc/v36bml_dugl_00401/htc_v36bml_dugl:5.1/LMY47D/822405.2:user/release-keys \
     PRIVATE_BUILD_DESC="1.17.401.2 CL822405 release-keys" \
     PRODUCT_NAME=v36bml_dugl_00401
 #    ro.com.google.clientidbase=android-htc \
