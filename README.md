@@ -1,6 +1,6 @@
-# HTC Desire 628 dual sim - AEX 5.x (Oreo 8.1.0)
+# HTC Desire 628 dual sim - AEX 6.x (Oreo 9.x)
 
-This is device tree for building of the Android Oreo 8.1.0 AOSP/AEX ROMs.
+This is device tree for building of the Android Oreo 9.x AOSP/AEX ROMs.
 
 ---
 
@@ -102,7 +102,7 @@ EOF
 ``` 
 Init source tree with AEX sources:
 ```
-repo init -u git://github.com/AospExtended/manifest.git -b 8.1.x
+repo init -u git://github.com/AospExtended/manifest.git -b 9.x
 ```
 
 Sync source code from repos:
