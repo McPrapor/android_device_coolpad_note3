@@ -84,8 +84,8 @@ git config --global user.email "your@email.com"
 ```
 Make android source tree directories:
 ```
-mkdir -p ~/aex/oreo/.repo/local_manifests/
-cd ~/aex/oreo
+mkdir -p ~/aex/pie/.repo/local_manifests/
+cd ~/aex/pie
 ```
 Put manifest with our repos:
 ```
@@ -125,5 +125,5 @@ mka aex -j$(nproc --all)
 
 One-line build command:
 ```
-cd /root/aex/oreo/ ; sh device/htc/htc_v36bml_dugl/patches/unpatch.sh ; repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags ; sh device/htc/htc_v36bml_dugl/patches/patch.sh ; . build/envsetup.sh ; lunch full_htc_v36bml_dugl-userdebug ; mka aex -j$(nproc --all)
+cd ~/aex/pie/ ; sh device/htc/htc_v36bml_dugl/patches/unpatch.sh ; repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags ; sh device/htc/htc_v36bml_dugl/patches/patch.sh ; . build/envsetup.sh ; lunch full_htc_v36bml_dugl-userdebug ; mka aex -j$(nproc --all)
 ```
