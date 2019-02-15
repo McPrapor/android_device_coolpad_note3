@@ -14,8 +14,8 @@ PRODUCT_RELEASE_NAME := Desire 628 dual sim
 
 PRODUCT_DEVICE := htc_v36bml_dugl
 PRODUCT_NAME := full_htc_v36bml_dugl
-PRODUCT_BRAND := HTC
-PRODUCT_MODEL := Desire 628 dual sim
+PRODUCT_BRAND := htc
+PRODUCT_MODEL := HTC Desire 628 dual sim
 PRODUCT_MANUFACTURER := HTC
 PRODUCT_RESTRICT_VENDOR_FILES := false
 
