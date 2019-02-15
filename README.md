@@ -94,7 +94,7 @@ cat <<EOF > .repo/local_manifests/roomservice.xml
 <manifest>
         <remote fetch="git://github.com/" name="gh" />
         <project path="kernel/htc/htc_v36bml_dugl" name="McPrapor/kernel_misu" remote="github" revision="master"/>
-        <project path="device/htc/htc_v36bml_dugl" name="McPrapor/android_device_htc_v36bml" remote="github" revision="o-8.1.0"/>
+        <project path="device/htc/htc_v36bml_dugl" name="McPrapor/android_device_htc_v36bml" remote="github" revision="p-9.x"/>
         <project path="vendor/htc/htc_v36bml_dugl" name="McPrapor/android_vendor_htc_v36bml" remote="github" revision="o-8.1.0"/>
         <project path="hardware/htc/htc_v36bml_dugl" name="McPrapor/android_hardware_htc_v36bml" remote="github" revision="o-8.1.0"/>
 </manifest>
