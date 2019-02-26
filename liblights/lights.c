@@ -220,17 +220,21 @@ set_speaker_light_locked(struct light_device_t* dev,
 
     if (blink) {
         if (amber >= 128 && amber >= green) {
+            led_wait_delay(20);		
             write_str(AMBER_TRIGGER_FILE, "timer");
-            led_wait_delay(10);
+            led_wait_delay(20);
             write_int(AMBER_DELAY_ON_FILE, onMS);
+            led_wait_delay(20);		
             write_int(AMBER_DELAY_OFF_FILE, offMS);
         }
         // disable mixing green with amber
         // leds aren't blinking in sync
         else if (green >= 128) { 
+            led_wait_delay(20);		
             write_str(GREEN_TRIGGER_FILE, "timer");
-            led_wait_delay(10);            
+            led_wait_delay(20);            
             write_int(GREEN_DELAY_ON_FILE, onMS);
+            led_wait_delay(20);		
             write_int(GREEN_DELAY_OFF_FILE, offMS);
         }
     }
@@ -241,6 +245,7 @@ set_speaker_light_locked(struct light_device_t* dev,
 //        if (green >= 128) {
 //            write_int(GREEN_LED_FILE, 255);
 //        }
+        led_wait_delay(20);	    
         write_int(AMBER_LED_FILE, amber);
         write_int(GREEN_LED_FILE, green);
     }
