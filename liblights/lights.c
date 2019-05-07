@@ -185,7 +185,7 @@ static int
 set_speaker_light_locked(struct light_device_t* dev,
         struct light_state_t const* state)
 {
-    int amber, green, blink;
+    int amber, green, blue, blink;
     int onMS, offMS;
     unsigned int colorRGB;
 //    ALOGE("DBG liblight set_speaker_light_locked");
@@ -209,8 +209,9 @@ set_speaker_light_locked(struct light_device_t* dev,
 
     amber = (colorRGB >> 16) & 0xFF;
     green = (colorRGB >> 8) & 0xFF;
-    ALOGE("DBG liblight set_speaker_light_locked mode %d, colorRGB=%08X, amber=%d, green=%d, onMS=%d, offMS=%d\n", 
-            state->flashMode, colorRGB, amber, green, onMS, offMS);
+    blue =  (colorRGB >> 0) & 0xFF;
+    ALOGE("DBG liblight set_speaker_light_locked mode %d, colorRGB=%08X, amber=%d, green=%d, blue=%d, onMS=%d, offMS=%d\n", 
+            state->flashMode, colorRGB, amber, green, blue, onMS, offMS);
     blink = onMS > 0 && offMS > 0;
 
     write_int(AMBER_LED_FILE, 0);
@@ -221,18 +222,18 @@ set_speaker_light_locked(struct light_device_t* dev,
     if (blink) {
         if (amber >= 128 && amber >= green) {
             write_str(AMBER_TRIGGER_FILE, "timer");
-            led_wait_delay(20);
+            led_wait_delay(50);
             write_int(AMBER_DELAY_ON_FILE, onMS);
-            led_wait_delay(20);		
+            led_wait_delay(50);		
             write_int(AMBER_DELAY_OFF_FILE, offMS);
         }
         // disable mixing green with amber
         // leds aren't blinking in sync
         else if (green >= 128) { 
             write_str(GREEN_TRIGGER_FILE, "timer");
-            led_wait_delay(20);            
+            led_wait_delay(50);            
             write_int(GREEN_DELAY_ON_FILE, onMS);
-            led_wait_delay(20);			
+            led_wait_delay(50);			
             write_int(GREEN_DELAY_OFF_FILE, offMS);
         }
     }
