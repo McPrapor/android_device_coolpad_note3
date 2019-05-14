@@ -215,7 +215,7 @@ TARGET_LD_SHIM_LIBS := \
     /system/vendor/lib/libcam.hal3a.v3.so|libmtkshim_camera.so \
     /system/vendor/lib64/libcam.hal3a.v3.so|libmtkshim_camera.so \
     /system/vendor/lib/libcam.jni.lomohaljni.so|libmtkshim_camera.so \
-    /system/vendor/lib64/libcam.jni.lomohaljni.so|libmtkshim_camera.so \    
+    /system/vendor/lib64/libcam.jni.lomohaljni.so|libmtkshim_camera.so \
     /system/vendor/lib/libmtkcam_imgbuf.so|libmtkshim_camera.so \
     /system/vendor/lib64/libmtkcam_imgbuf.so|libmtkshim_camera.so    
 #    /system/vendor/lib/hw/camera.mt6753.so|libmtkshim_camera.so \
