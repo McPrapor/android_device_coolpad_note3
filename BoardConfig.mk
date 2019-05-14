@@ -208,16 +208,18 @@ TARGET_LD_SHIM_LIBS := \
     /system/lib64/libui.so|libmtkshim_ui.so \
     /system/lib/libgui.so|libmtkshim_gui.so \
     /system/lib64/libgui.so|libmtkshim_gui.so \
-    /system/vendor/lib/hw/camera.mt6753.so|libmtkshim_camera.so \
-    /system/vendor/lib64/hw/camera.mt6753.so|libmtkshim_camera.so     
-#    /system/vendor/lib/libfeatureio.so|libmtkshim_camera.so \
-#    /system/vendor/lib64/libfeatureio.so|libmtkshim_camera.so \
-#    /system/vendor/lib/libcam.camnode.so|libmtkshim_camera.so \
-#    /system/vendor/lib64/libcam.camnode.so|libmtkshim_camera.so \
-#    /system/vendor/lib/libcam.hal3a.v3.so|libmtkshim_camera.so \
-#    /system/vendor/lib64/libcam.hal3a.v3.so|libmtkshim_camera.so \
-#    /system/vendor/lib/libmtkcam_imgbuf.so|libmtkshim_camera.so \
-#    /system/vendor/lib64/libmtkcam_imgbuf.so|libmtkshim_camera.so
+    /system/vendor/lib/libfeatureio.so|libmtkshim_camera.so \
+    /system/vendor/lib64/libfeatureio.so|libmtkshim_camera.so \
+    /system/vendor/lib/libcam.camnode.so|libmtkshim_camera.so \
+    /system/vendor/lib64/libcam.camnode.so|libmtkshim_camera.so \
+    /system/vendor/lib/libcam.hal3a.v3.so|libmtkshim_camera.so \
+    /system/vendor/lib64/libcam.hal3a.v3.so|libmtkshim_camera.so \
+    /system/vendor/lib/libcam.jni.lomohaljni.so|libmtkshim_camera.so \
+    /system/vendor/lib64/libcam.jni.lomohaljni.so|libmtkshim_camera.so \    
+    /system/vendor/lib/libmtkcam_imgbuf.so|libmtkshim_camera.so \
+    /system/vendor/lib64/libmtkcam_imgbuf.so|libmtkshim_camera.so    
+#    /system/vendor/lib/hw/camera.mt6753.so|libmtkshim_camera.so \
+#    /system/vendor/lib64/hw/camera.mt6753.so|libmtkshim_camera.so     
 
 #    /system/vendor/lib/hw/audio.primary.$(TARGET_BOARD_PLATFORM).so|libmtkshim_audio.so \
 #    /system/vendor/lib64/hw/audio.primary.$(TARGET_BOARD_PLATFORM).so|libmtkshim_audio.so \
