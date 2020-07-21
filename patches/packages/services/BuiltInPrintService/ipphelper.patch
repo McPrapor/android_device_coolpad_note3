@@ -1,0 +1,58 @@
+diff --git a/jni/ipphelper/ipp_print.c b/jni/ipphelper/ipp_print.c
+index 57914b3..804c668 100644
+--- a/jni/ipphelper/ipp_print.c
++++ b/jni/ipphelper/ipp_print.c
+@@ -101,14 +101,14 @@ static status_t _init(const ifc_print_job_t *this_p, const char *printer_address
+             ipp_scheme, NULL, printer_address, ippPortNumber, printer_uri);
+     getResourceFromURI(ipp_job->printer_uri, ipp_job->http_resource, 1024);
+     if (use_secure_uri) {
+-        ipp_job->http = httpConnectEncrypt(printer_address, ippPortNumber, HTTP_ENCRYPTION_ALWAYS);
++        ipp_job->http = httpConnect2(printer_address, ippPortNumber, NULL, AF_UNSPEC, HTTP_ENCRYPTION_ALWAYS, 0, 30000, NULL);
+ 
+         // If ALWAYS doesn't work, fall back to REQUIRED
+         if (ipp_job->http == NULL) {
+-            ipp_job->http = httpConnectEncrypt(printer_address, ippPortNumber, HTTP_ENCRYPT_REQUIRED);
++            ipp_job->http = httpConnect2(printer_address, ippPortNumber, NULL, AF_UNSPEC, HTTP_ENCRYPT_REQUIRED, 0, 30000, NULL);
+         }
+     } else {
+-        ipp_job->http = httpConnectEncrypt(printer_address, ippPortNumber, HTTP_ENCRYPTION_IF_REQUESTED);
++        ipp_job->http = httpConnect2(printer_address, ippPortNumber, NULL, AF_UNSPEC, HTTP_ENCRYPTION_IF_REQUESTED, 0, 30000, NULL);
+     }
+ 
+     httpSetTimeout(ipp_job->http, DEFAULT_IPP_TIMEOUT, NULL, 0);
+@@ -609,4 +609,4 @@ static status_t _end_job(const ifc_print_job_t *this_p) {
+     LOGD("_end_job: exit status %d job_id %d", ipp_job->status, job_id);
+ 
+     return result;
+-}
+\ No newline at end of file
++}
+diff --git a/jni/ipphelper/ipphelper.c b/jni/ipphelper/ipphelper.c
+index bbe484e..c5d64b4 100644
+--- a/jni/ipphelper/ipphelper.c
++++ b/jni/ipphelper/ipphelper.c
+@@ -1426,14 +1426,14 @@ http_t *ipp_cups_connect(const wprint_connect_info_t *connect_info, char *printe
+     int ippPortNumber = ((connect_info->port_num == IPP_PORT) ? ippPort() : connect_info->port_num);
+ 
+     if (strstr(connect_info->uri_scheme,IPPS_PREFIX) != NULL) {
+-        curl_http = httpConnectEncrypt(connect_info->printer_addr, ippPortNumber, HTTP_ENCRYPTION_ALWAYS);
++        curl_http = httpConnect2(connect_info->printer_addr, ippPortNumber, NULL, AF_UNSPEC, HTTP_ENCRYPTION_ALWAYS, 1, 30000, NULL);
+ 
+         // If ALWAYS doesn't work, fall back to REQUIRED
+         if (curl_http == NULL) {
+-            curl_http = httpConnectEncrypt(connect_info->printer_addr, ippPortNumber, HTTP_ENCRYPT_REQUIRED);
++            curl_http = httpConnect2(connect_info->printer_addr, ippPortNumber, NULL, AF_UNSPEC, HTTP_ENCRYPT_REQUIRED, 1, 30000, NULL);
+         }
+     } else {
+-        curl_http = httpConnectEncrypt(connect_info->printer_addr, ippPortNumber, HTTP_ENCRYPTION_IF_REQUESTED);
++        curl_http = httpConnect2(connect_info->printer_addr, ippPortNumber, NULL, AF_UNSPEC, HTTP_ENCRYPTION_IF_REQUESTED, 1, 30000, NULL);
+     }
+ 
+     httpSetTimeout(curl_http, (double)connect_info->timeout / 1000, NULL, 0);
+@@ -1571,4 +1571,4 @@ ipp_t *ipp_doCupsRequest(http_t *http, ipp_t *request, char *http_resource, char
+     } while (1);
+ 
+     return response;
+-}
+\ No newline at end of file
++}
